@@ -1,0 +1,24 @@
+extends ../layouts/default
+include ../mixins/slider
+block css
+    //link(rel='stylesheet', type='text/css', href='/styles/home/demo.css')
+    link(rel='stylesheet', type='text/css', href='/styles/home/style.css')
+block content
+    +slider()
+block js
+    // jmpress plugin
+    script(type='text/javascript', src='js/home/jmpress.min.js')
+    // jmslideshow plugin : extends the jmpress plugin
+    script(type='text/javascript', src='js/home/jquery.jmslideshow.js')
+    script(type='text/javascript', src='js/home/modernizr.custom.48780.js')
+    script(type='text/javascript').
+        $(function() {
+        var jmpressOpts	= {
+        animation		: { transitionDuration : '2s' }
+        };
+        $( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {
+        autoplay	: true,
+        bgColorSpeed: '0.8s',
+        arrows		: false
+        }));
+        });
