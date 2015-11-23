@@ -8,7 +8,7 @@ mixin slider(posts)
                         h3=post.title
                         p=post.content.brief
                         a.jms-link(href='#') 更多
-                    img(src='img/'+post.images[0].image.filename)
+                    img.slider-img(src='img/'+post.images[0].image.filename)
     else
        section#jms-slideshow.jms-slideshow
         .step(data-color='color-2')
