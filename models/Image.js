@@ -1,6 +1,6 @@
 // Load .env for development environments
 require('dotenv').load();
-var data_path = process.env.DATA_PATH || (__dirname + '/data');
+var data_path = process.env.DATA_PATH
 
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
@@ -11,7 +11,6 @@ var Types = keystone.Field.Types;
  */
 
 var Image = new keystone.List('Image', {
-	map: { name: 'title' },
 	track: true,
 	autokey: { path: 'key', from: 'name', unique: true }
 });
@@ -24,10 +23,10 @@ Image.add({
 	brief: { type: Types.Text, wysiwyg: true, height: 150 },
 	image: {
 		type: Types.LocalFile,
-		dest: data_path + '/images',
-		prefix: '/images/',
+		dest: data_path + '/img',
+		prefix: '/img/',
 		format: function(item, file){
-			return '<img src="/images/'+file.filename+'" style="max-width: 300px">'
+			return '<img src="/img/'+file.filename+'" style="max-width: 300px">'
 		}
 	}
 });
@@ -47,5 +46,5 @@ Image.relationship({ ref: 'Research', refPath: 'images', path: 'researches' });
  */
 
 Image.defaultSort = '-date';
-Image.defaultColumns = 'title, state|20%, date, type|20%';
+Image.defaultColumns = 'name, date, type|20%, state|20%';
 Image.register();
