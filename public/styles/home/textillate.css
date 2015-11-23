@@ -1,0 +1,72 @@
+.decal {
+  height: 2px;
+  background-color: #000;
+  border-bottom: 1px solid #333;
+}
+
+.playground {
+  background: #282828;;
+  border: 1px solid #333;
+}
+
+/* EFFECTS
+***************/
+
+.glow {
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -webkit-transition: text-shadow 1s linear;
+       -moz-transition: text-shadow 1s linear;
+         -o-transition: text-shadow 1s linear;
+            transition: text-shadow 1s linear;
+}
+
+.glow.in {
+  text-shadow: 
+    0.025em 0.025em 0.025em rgba(0, 0, 0, 0.8),
+    0 0 0.5em rgba(255, 255, 255, 0.3);
+}
+
+.fade {
+  opacity: 0;
+    -webkit-transition: opacity 1s linear;
+       -moz-transition: opacity 1s linear;
+         -o-transition: opacity 1s linear;
+            transition: opacity 1s linear;
+}
+
+.fade.in {
+  opacity: 1;
+}
+
+/* MARKETING
+***************/
+
+.jumbotron {
+  position: relative;
+  padding: 3em 0;
+  text-align: center;
+  background: #242424;
+}
+
+.jumbotron h2 {
+  color: #fff;
+  font-size: 13em;
+  font-weight: 200;
+  text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+}
+
+.jumbotron h1 .char11 {
+  color: #ED303C;
+}
+
+.jumbotron p {
+  margin-top: -1em;
+  letter-spacing: 0.15em;
+  color: #ccc;
+  font-size: 1.25em;
+  font-weight: 200;
+  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+  text-align: center;
+}
