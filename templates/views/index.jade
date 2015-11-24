@@ -1,24 +1,41 @@
 extends ../layouts/default
 include ../mixins/slider
 block css
-    //link(rel='stylesheet', type='text/css', href='/styles/home/demo.css')
     link(rel='stylesheet', type='text/css', href='/styles/home/style.css')
+    link(rel='stylesheet', type='text/css', href='/styles/home/textillate.css')
+    link(rel='stylesheet', type='text/css', href='/lib/textillate/animate.min.css')
 block content
-    +slider()
+    .playground
+        +slider(news)
+    .decal
+    .jumbotron
+        h2.glow.in.tlt 信息实验室
+        p.tlt(data-in-effect='bounceInDown').
+            A simple plugin for CSS3 text animations.
+        p.intro(data-out-effect="fadeOut" data-out-shuffle="true")
+            Jade is a terse and simple
+            templating language with a
+            strong focus on performance
+            and powerful features.
 block js
     // jmpress plugin
     script(type='text/javascript', src='js/home/jmpress.min.js')
     // jmslideshow plugin : extends the jmpress plugin
     script(type='text/javascript', src='js/home/jquery.jmslideshow.js')
     script(type='text/javascript', src='js/home/modernizr.custom.48780.js')
+    script(type='text/javascript', src='/lib/textillate/jquery.fittext.js')
+    script(type='text/javascript', src='/lib/textillate/jquery.lettering.js')
+    script(type='text/javascript', src='/lib/textillate/jquery.textillate.js')
     script(type='text/javascript').
         $(function() {
-        var jmpressOpts	= {
-        animation		: { transitionDuration : '2s' }
-        };
-        $( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {
-        autoplay	: true,
-        bgColorSpeed: '0.8s',
-        arrows		: false
-        }));
+            $('.jumbotron h2').fitText(2.0).textillate({ in: { effect: 'flipInY' }});
+            $('.jumbotron p').fitText(3.2, { maxFontSize: 18 }).textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
+            $('.p.intro ').textillate();
+        
+            var jmpressOpts	= {animation: { transitionDuration : '2s' }};
+            $( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {
+            autoplay	: true,
+            bgColorSpeed: '0.8s',
+            arrows		: false
+            }));
         });

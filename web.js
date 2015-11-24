@@ -1,6 +1,5 @@
 // Load .env for development environments
 require('dotenv').load();
-var data_path = __dirname + (process.env.DATA_PATH || '/data');
 var keystone = require('keystone');
 var pkg = require('./package.json');
 keystone.init({
@@ -9,7 +8,7 @@ keystone.init({
   
   'favicon': 'public/favicon.ico',
   'less': 'public',
-  'static': ['public', data_path],
+  'static': ['public', process.env.DATA_PATH],
   
   'views': 'templates/views',
   'view engine': 'jade',
