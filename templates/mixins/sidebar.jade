@@ -1,0 +1,38 @@
+mixin sidebar()
+	aside#sidebar
+		.widget-wrap
+				h3.widget-title
+					a.category-list-link(href='/hexo-theme-alex/categories/About/') 目录
+					
+		.widget-wrap
+			h3.widget-title 类别
+			.widget
+			ul.category-list
+				li.category-list-item
+				a.category-list-link(href='/hexo-theme-alex/categories/About/') About
+				span.category-list-count 1
+				li.category-list-item
+				a.category-list-link(href='/hexo-theme-alex/categories/Demo/') Demo
+				span.category-list-count 2
+		.widget-wrap
+			h3.widget-title Archives
+			.widget
+			ul.archive-list
+				li.archive-list-item
+				a.archive-list-link(href='/hexo-theme-alex/archives/2015/02/') February 2015
+				span.archive-list-count 1
+				li.archive-list-item
+				a.archive-list-link(href='/hexo-theme-alex/archives/2015/01/') January 2015
+				span.archive-list-count 3
+		.widget-wrap
+			h3.widget-title 最近
+			.widget
+			ul
+				li
+				a(href='/hexo-theme-alex/2015/02/03/中文测试/') 中文测试
+				li
+				a(href='/hexo-theme-alex/2015/01/25/Readme/') Readme
+				li
+				a(href='/hexo-theme-alex/2015/01/25/Markdown Example/') Markdown
+				li
+				a(href='/hexo-theme-alex/2015/01/24/Gallery Example/') Gallery Example

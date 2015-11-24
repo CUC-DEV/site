@@ -1,0 +1,15 @@
+extends ../layouts/default
+include ../mixins/sidebar
+include ../mixins/article
+block css
+    link(rel='stylesheet', type='text/css', href='/styles/post/jquery.fancybox.css')
+    link(rel='stylesheet', type='text/css', href='/styles/post/style.css')
+block content
+            .outer
+                +sidebar()
+                section#main
+                    +article(rank)
+block js
+    script(type='text/javascript', src='js/post/jquery.fancybox.pack.js')
+    script(type='text/javascript', src='js/post/jquery.scrollLoading.js')
+    script(type='text/javascript', src='js/post/script.js')
