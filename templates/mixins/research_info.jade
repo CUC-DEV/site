@@ -1,11 +1,16 @@
-mixin research_info(name,content)
-    #test.row
-      .col-sm-6.col-md-4
+mixin research_info(name,image,content)
+    .row
+      //-.col-sm-6.col-md-4
+      .col.s6.col-md-4        
         .thumbnail
-          img(src='images/research/test.jpg', alt='')
-          .caption
+          img(src='images/research/'+'#{image}', alt='',width="80%",height="80%",text-align="center")
+      .col.s5.introduction
+          .caption.flow-text
             h3 #{name}
             p #{content}
             p
-              a.btn.btn-primary(href='#', role='button') 链接
-              a.btn.btn-default(href='#', role='button') 链接
+              a.btn.btn-primary(href='#', role='button') 详情
+              a.btn.btn-default(href='#', role='button') 在线演示
+      .col.s10.offset-s1 
+            hr
+      
