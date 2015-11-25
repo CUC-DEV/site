@@ -1,0 +1,17 @@
+mixin article(post)
+    if post
+        post.title
+        article.article.article-type-post(id='post-中文测试', itemscope='', itemprop='blogPost')
+            .article-meta
+                a.article-date(href='/hexo-theme-alex/2015/02/03/中文测试/')
+                time(datetime='2015-02-03T13:55:37.000Z', itemprop='datePublished')=post.publishDate
+            .article-inner
+                header.article-header
+                h1(itemprop='name')
+                    a.article-title(href='/hexo-theme-alex/2015/02/03/中文测试/')=post.title
+                .article-entry(itemprop='articleBody')
+                    h2=post.author
+                    != post.content.extended.html
+                footer.article-footer
+                a.article-share-link(data-url='http://ppoffice.github.io/hexo-theme-alex/2015/02/03/中文测试/', data-id='m68w0zgj872hn7k2') Share
+ 

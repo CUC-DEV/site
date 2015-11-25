@@ -31,10 +31,12 @@ var routes = {
 // 绑定路由
 exports = module.exports = function(app) {
     app.get('/', routes.views.index);
+    app.get('/post', routes.views.post);
+    //app.get('/researches', routes.views.researches);
     app.get('/research', routes.views.research);
     app.get('/members', routes.views.members);
     // app.get('/resources', routes.views.resources);
     // app.get('/activities', routes.views.activities);
-    // app.get('/contact', routes.views.contact);
+    //app.get('/contact', routes.views.contact);
     //app.all('/ajax/home', routes.ajaxs.home);
 }

@@ -21,6 +21,7 @@ Post.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	type: { type: Types.Select, options: 'home, post, other', default: 'post', index: true },
 	images: { type: Types.Relationship, ref: 'Image', many: true },
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	content: {
 		brief: { type: Types.Text},
 		extended: { type: Types.Markdown}
