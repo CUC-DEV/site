@@ -6,7 +6,7 @@ block css
     link(rel='stylesheet', type='text/css', href='/styles/post/style.css')
 block content
             .outer
-                +sidebar()
+                +sidebar(categories, archives, recents)
                 section#main
                     +article(rank)
 block js

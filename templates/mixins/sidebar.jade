@@ -1,4 +1,4 @@
-mixin sidebar()
+mixin sidebar(categories, archives, recents)
 	aside#sidebar
 		.widget-wrap
 				h3.widget-title
@@ -8,31 +8,22 @@ mixin sidebar()
 			h3.widget-title 类别
 			.widget
 			ul.category-list
-				li.category-list-item
-				a.category-list-link(href='/hexo-theme-alex/categories/About/') About
-				span.category-list-count 1
-				li.category-list-item
-				a.category-list-link(href='/hexo-theme-alex/categories/Demo/') Demo
-				span.category-list-count 2
+				each category in categories
+					li.category-list-item
+					a.category-list-link(href='/hexo-theme-alex/categories/About/')=category.name
+					span.category-list-count ?
 		.widget-wrap
-			h3.widget-title Archives
+			h3.widget-title 归档
 			.widget
 			ul.archive-list
-				li.archive-list-item
-				a.archive-list-link(href='/hexo-theme-alex/archives/2015/02/') February 2015
-				span.archive-list-count 1
-				li.archive-list-item
-				a.archive-list-link(href='/hexo-theme-alex/archives/2015/01/') January 2015
-				span.archive-list-count 3
+				each archive in archives
+					li.archive-list-item
+					a.archive-list-link(href='/hexo-theme-alex/archives/2015/02/')=archive._id
+					span.archive-list-count=archive.total
 		.widget-wrap
 			h3.widget-title 最近
 			.widget
 			ul
-				li
-				a(href='/hexo-theme-alex/2015/02/03/中文测试/') 中文测试
-				li
-				a(href='/hexo-theme-alex/2015/01/25/Readme/') Readme
-				li
-				a(href='/hexo-theme-alex/2015/01/25/Markdown Example/') Markdown
-				li
-				a(href='/hexo-theme-alex/2015/01/24/Gallery Example/') Gallery Example
+				each recent in recents
+					li
+					a(href='/hexo-theme-alex/2015/02/03/中文测试/')=recent.title

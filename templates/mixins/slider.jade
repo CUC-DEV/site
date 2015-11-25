@@ -2,7 +2,7 @@ mixin slider(posts)
     if posts && posts.length
         section#jms-slideshow.jms-slideshow
           each post in posts
-            if post.images[0].image.filename
+            if post && post.images.length
                 .step(data-color='color-2')
                     .jms-content
                         h3=post.title

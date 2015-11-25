@@ -37,5 +37,5 @@ exports = module.exports = function(app) {
     app.get('/resources', routes.views.resources);
     app.get('/activities', routes.views.activities);
     //app.get('/contact', routes.views.contact);
-    //app.all('/ajax/home', routes.ajaxs.home);
+    app.get('/ajax/category/:name', routes.ajaxs.postCategory);
 }

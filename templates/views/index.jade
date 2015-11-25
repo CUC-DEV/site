@@ -10,13 +10,9 @@ block content
     .decal
     .jumbotron
         h2.glow.in.tlt 信息实验室
-        p.tlt(data-in-effect='bounceInDown').
-            A simple plugin for CSS3 text animations.
-        p.intro(data-out-effect="fadeOut" data-out-shuffle="true")
-            Jade is a terse and simple
-            templating language with a
-            strong focus on performance
-            and powerful features.
+        .intro(data-out-effect="fadeOut" data-out-shuffle="true")
+            if intro
+                !=intro.content.extended.html
 block js
     // jmpress plugin
     script(type='text/javascript', src='js/home/jmpress.min.js')
@@ -30,7 +26,6 @@ block js
         $(function() {
             $('.jumbotron h2').fitText(2.0).textillate({ in: { effect: 'flipInY' }});
             $('.jumbotron p').fitText(3.2, { maxFontSize: 18 }).textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
-            $('.p.intro ').textillate();
         
             var jmpressOpts	= {animation: { transitionDuration : '2s' }};
             $( '#jms-slideshow' ).jmslideshow( $.extend( true, { jmpressOpts : jmpressOpts }, {

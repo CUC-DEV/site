@@ -12,7 +12,7 @@ var Post = new keystone.List('Post', {
 	track: true,
 	autokey: { path: 'key', from: 'title', unique: true }
 });
-
+//todo: when publish save pushlish date
 Post.add({
 	title: { type: String, required: true },
 	rank: { type: Number, default: 0 },
@@ -43,6 +43,6 @@ Post.schema.virtual('content.full').get(function() {
  * ============
  */
 
-Post.defaultSort = '-publishedDate';
-Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+Post.defaultSort = '-publishDate';
+Post.defaultColumns = 'title, state|20%, author|20%, publishDate|20%';
 Post.register();
