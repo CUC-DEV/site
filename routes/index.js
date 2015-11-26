@@ -31,6 +31,7 @@ var routes = {
 // 绑定路由
 exports = module.exports = function(app) {
     app.get('/', routes.views.index);
+
     app.get('/post', routes.views.post);
     //app.get('/researches', routes.views.researches);
     app.get('/members', routes.views.members);
@@ -38,4 +39,6 @@ exports = module.exports = function(app) {
     app.get('/activities', routes.views.activities);
     //app.get('/contact', routes.views.contact);
     app.get('/ajax/category/:name', routes.ajaxs.postCategory);
+
+
 }

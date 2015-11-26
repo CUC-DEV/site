@@ -1,6 +1,34 @@
 extends ../layouts/default
 include ../mixins/members_info
+//block body
+    .parallax-container
+      .parallax
+        img(src='images/home/4.png')
+    .section.white
+      .row.container
+        +members_info(members)
+    .parallax-container
+      .parallax
+        img(src='images/home/3.png')
+//
+block css
+    //link(rel='stylesheet', type='text/css', href='/styles/home/style.css')
+    //link(rel='stylesheet', type='text/css', href='/lib/Materialize/dist/css/materialize.css')
+    //link(rel='stylesheet', type='text/css', href='/lib/Materialize/dist/css/materialize.min.css')
+//
 block content
-    +members_info('zengyan','lllllll')
-    +members_info('zengyan','lllllll')
+      +members_info(members)    
+
+block js
+      script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.min.js')
+      script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.js')
+      script(type='text/javascript').
+            $(document).ready(function(){
+                                $('.materialboxed').materialbox();
+                                         });
+    //script(type='text/javascript', src='js/home/jmpress.min.js')
+    //script(type='text/javascript', src='js/home/jquery.jmslideshow.js')
+    //script(type='text/javascript', src='js/home/modernizr.custom.48780.js')
+    //script(type='text/javascript', src='/lib/textillate/jquery.fittext.js')
+      
     

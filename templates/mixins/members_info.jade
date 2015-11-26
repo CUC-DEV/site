@@ -1,17 +1,71 @@
-mixin members_info(name,info,avatar)
-    .row
-      .col-sm-6.col-md-3
-        .thumbnail
-          img(src='images/avatar.png', alt='')
-        .caption
-          h3 #{name}
-          p #{info}
-          p
-            a.btn.btn-primary(href='#', role='button')
-              | 按钮
-            a.btn.btn-default(href='#', role='button')
-              | 按钮
+mixin members_info(members)
+    if members && members.length
+    .container
+      //line
+      .divider
+      // section teacher
+      section(style='margin:3em 2em;background:#eee;').row
+          h3(style='text-align:center;padding:20px') 老师
+          .col.s4
+              .card
+                .card-image.waves-effect.waves-block.waves-light
+                img(style='width:100%;padding:2em 2em;').activator.materialboxed(src='images/home/4.jpg')
+                .card-content
+                  span.card-title.activator.grey-text.text-darken-4
+                    h5 史萍
+                    i.material-icons.right more_vert
+                p
+                    a(href='#') 个人页面
+                        
+                .card-reveal
+                  span.card-title.grey-text.text-darken-4
+                    h5 史萍
+                    i.material-icons.right close
+                  p
+                    | 这里有更多关于她的个人资料.
+                    
       
-
-
+      .divider
+      //      
+      section(style='margin:2em 2em;background:#eee;').row
+        h3(style='text-align:center;padding:20px') 在读学生
+        each member in members
+            .col.s3.card
+              .card-image.waves-effect.waves-block.waves-light
+              img(style='width:100%;padding:2em 2em;').activator.materialboxed(src='images/home/5.jpg')
+              .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                h5=member.name.first+member.name.last
+                i.material-icons.right more_vert
+              p
+                a(href='#') 个人页面
+              .card-reveal
+                span.card-title.grey-text.text-darken-4
+                  h5=member.name.first+member.name.last
+                  i.material-icons.right close
+                p
+                  | 这里有更多关于他的个人资料.
+      .divider
+      //
+      section(style='margin:2em 2em;background:#eee;').row
+        h3(style='text-align:center;padding:20px') 往届学生
+        each member in members
+            .col.s3.card
+              .card-image.waves-effect.waves-block.waves-light
+              img(style='width:100%;padding:2em 2em;').activator.materialboxed(src='images/home/5.jpg')
+              .card-content
+              span.card-title.activator.grey-text.text-darken-4
+                h5=member.name.first+member.name.last
+                i.material-icons.right more_vert
+              p
+                a(href='#') 个人页面
+              .card-reveal
+                span.card-title.grey-text.text-darken-4
+                  h5=member.name.first+member.name.last
+                  i.material-icons.right close
+                p
+                  | 这里有更多关于他的个人资料.   
+     
+     
+    
            
