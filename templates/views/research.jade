@@ -3,12 +3,17 @@ include ../mixins/research_info
 block css
     link(rel='stylesheet', type='text/css', href='/styles/research/style.css')
 block content
+    // .row
+    //   .col.s12  
+    //       +research_info('在线超媒体编辑系统','super.jpg','Grunt是基于Node.js的项目构建工具。它可以自动运行你所设定的任务。Grunt拥有数量庞大的插件，几乎任何你所要做的事情都可以用Grunt实现。')
+    //   .col.s12 
+    //       +research_info('3D','school.jpg','Bootstrap优站精选频道收集了众多基于 Bootstrap 构建、设计精美的、有创意的网站。')
     .row
-      .col.s12  
-          +research_info('在线超媒体编辑系统','super.jpg','Grunt是基于Node.js的项目构建工具。它可以自动运行你所设定的任务。Grunt拥有数量庞大的插件，几乎任何你所要做的事情都可以用Grunt实现。')
-      .col.s12 
-          +research_info('3D','school.jpg','Bootstrap优站精选频道收集了众多基于 Bootstrap 构建、设计精美的、有创意的网站。')
+       each research in researches
+            .col.s12  
+                +research_info(research)
 
+            
     ul.pagination
       li.disabled
         a(href='#!')

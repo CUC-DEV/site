@@ -1,13 +1,14 @@
-mixin research_info(name,image,content)
+mixin research_info(research)
     .row
-      //-.col-sm-6.col-md-4
       .col.s6.col-md-4        
-        .thumbnail
-          img(src='images/research/'+'#{image}', alt='',width="80%",height="80%",text-align="center")
+         .thumbnail
+            img(src='img/'+research.images[0].image.filename, alt='',width="80%",height="80%",text-align="center")
+
       .col.s5.introduction
           .caption.flow-text
-            h3 #{name}
-            p #{content}
+              .jms-content
+               h3=research.title
+               p=research.content.brief
             p
               a.btn.btn-primary(href='#', role='button') 详情
               a.btn.btn-default(href='#', role='button') 在线演示
