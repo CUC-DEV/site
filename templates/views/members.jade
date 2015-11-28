@@ -1,34 +1,29 @@
 extends ../layouts/default
-include ../mixins/members_info
-//block body
-    .parallax-container
-      .parallax
-        img(src='images/home/4.png')
-    .section.white
-      .row.container
-        +members_info(members)
-    .parallax-container
-      .parallax
-        img(src='images/home/3.png')
-//
+include ../mixins/circle
+include ../mixins/modal
 block css
-    //link(rel='stylesheet', type='text/css', href='/styles/home/style.css')
-    //link(rel='stylesheet', type='text/css', href='/lib/Materialize/dist/css/materialize.css')
-    //link(rel='stylesheet', type='text/css', href='/lib/Materialize/dist/css/materialize.min.css')
-//
+    link(rel='stylesheet', type='text/css', href='/styles/members.css')
+    link(rel='stylesheet', type='text/css', href='/lib/ihover.css')
+block intro
+    -var title='智能媒体计算实验室'
+    -var text='中国传媒大学存储实验室长期从事信息存储的理论研究和网络存储技术开发，和国家信息中心合建存储技术工程中心，和声讯公司、中科院声学所合建安防大数据北京市重大实验室，系存储产业技术创新战略联盟首批成员单位,海量存储标准工作委员会成员单位。'
+    +introduction(title, text)
+block slogan
+    h2
+        | Texts, images, videos, we processe everthing.
 block content
-      +members_info(members)    
-
-block js
-      script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.min.js')
-      script(type='text/javascript', src='/lib/Materialize/dist/js/materialize.js')
-      script(type='text/javascript').
-            $(document).ready(function(){
-                                $('.materialboxed').materialbox();
-                                         });
-    //script(type='text/javascript', src='js/home/jmpress.min.js')
-    //script(type='text/javascript', src='js/home/jquery.jmslideshow.js')
-    //script(type='text/javascript', src='js/home/modernizr.custom.48780.js')
-    //script(type='text/javascript', src='/lib/textillate/jquery.fittext.js')
-      
+    - var member = {};
+    - member.image = '/images/avatars/avatar-m-1.png';
+    - member.title = '姓名';
+    - member.content = '简单介绍,简单介绍,简单介绍简单介绍,简单介绍,简单介绍简单介绍,简单介绍,简单介绍';
+    - members = [member, member, member];
+    .row.neo-members
+        .col.l12
+            +circle(members, '教师',['neo-member-teacher', 'effect7','left_to_right'])
+        .col.l12
+            +circle([member, member, member, member, member], '在读', ['neo-member-student','effect9'])
+        .col.l12
+            +circle([member, member, member, member], '毕业', ['neo-member-graduated','effect13'])
+block modal
+    +modal('memberModal')
     

@@ -30,10 +30,10 @@ var routes = {
  
 // 绑定路由
 exports = module.exports = function(app) {
-    app.get('/', routes.views.index);
+    app.get('/', routes.views.home);
 
-    app.get('/post', routes.views.post);
-    //app.get('/researches', routes.views.researches);
+    app.get('/posts', routes.views.posts);
+    app.get('/researches', routes.views.researches);
     app.get('/members', routes.views.members);
     app.get('/resources', routes.views.resources);
     app.get('/activities', routes.views.activities);

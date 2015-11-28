@@ -1,5 +1,4 @@
-include ../mixins/flash-messages
-
+include ../mixins/introduction
 doctype html
 html
 
@@ -7,52 +6,41 @@ html
 	head
 		meta(charset="utf-8")
 		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
-		
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-		link(href="http://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
-		// style
-		// 	@font-face {
-		// 		url('/lib/Materialize/dist/font/material-design-icons/Material-Design-Icons.eot') format('eot'),
-		// 		url('/lib/Materialize/dist/font/material-design-icons/Material-Design-Icons.ttf') format('ttf'),
-		// 		url('/lib/Materialize/dist/font/material-design-icons/Material-Design-Icons.svg'') format('svg');
-		// 	} 
+		link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+		//link(rel="shortcut icon", href="/images/logo/imc.gif", type="image/x-icon")
 		link(href="/lib/Materialize/dist/css/materialize.css", rel="stylesheet")
+		link(rel='stylesheet', type='text/css', href='/lib/textillate/animate.min.css')
+		link(href="/styles/default.css", rel="stylesheet")
 
 		block css
 		block head
 
 	//- HTML BODY
-	body(class=section ? 'sitesection-' + section : null)
-		.site-wrapper.has-sticky-footer
-
-			//- SITE HEADER
-			include ../includes/header
-			
-			//- SITE BODY
-			block body
-				main.site-body(role='main')
-
+	body
+		//- SITE HEADER
+		include ../includes/header
+		//- SITE BODY
+		block body
+			main.site-body(role='main')
+				.neo-intro
 					block intro
-
-					block flash-messages
-						+flash-messages(messages)
-
+				.row.neo-slogan.neo-slogan-blue
+					block slogan
+				.neo-content
 					block content
-						
-
-
-		//- MODALS
 		block modal
-
-	//- JAVASCRIPT
-	script.
+		//- SITE HEADER
+		include ../includes/footer
 
 	script(src='/js/lib/jquery/jquery-1.10.2.min.js')
-	script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
 	script(src='/lib/Materialize/dist/js/materialize.js')
-
-	if user && user.canAccessKeystone
-		script(src='/keystone/js/content/editor.js')
-	
-	
+	script(type='text/javascript', src='/lib/textillate/jquery.fittext.js')
+	script(type='text/javascript', src='/lib/textillate/jquery.lettering.js')
+	script(type='text/javascript', src='/lib/textillate/jquery.textillate.js')
+	script(type='text/javascript').
+		$(function() {
+			$('.jumbotron .neo-intro-title').fitText(2.0).textillate({ in: { effect: 'flipInY' }});
+			$('.jumbotron .neo-intro-text').fitText(3.2, { maxFontSize: 18 }).textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
+			$('.modal-trigger').leanModal();
+		});
 	block js

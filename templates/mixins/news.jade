@@ -1,0 +1,21 @@
+mixin news(news)
+	.row
+		-var i=0;
+		-while(i<3)
+			.col.s12.m12.l4
+				.card.z-depth-4
+					.card-image.waves-effect.waves-block.waves-light
+						img.activator(src='images/home/cuc-0.jpg')
+					.card-content
+						span.card-title.activator.grey-text.text-darken-4
+							| Card Title
+							i.material-icons.right more_vert
+						p
+							a(href='#') This is a link
+					.card-reveal
+						span.card-title.grey-text.text-darken-4
+							| Card Title
+							i.material-icons.right close
+						p
+							| Here is some more information about this product that is only revealed once clicked on.
+			- i++

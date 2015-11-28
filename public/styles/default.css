@@ -1,0 +1,72 @@
+.nav-header{
+	position: absolute;
+	top:0;
+	background: none;	
+}
+
+
+.neo-logo{
+	height: 50px;
+	margin: 5px 0px 10px 30px;
+}
+
+/*  home header intro   */
+.neo-intro{
+    color: #fafafa;
+    padding-top: 90px;
+    background-image: url("/images/background/home.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+	padding-bottom: 100px;
+}
+.neo-intro-title{
+	
+}
+
+.neo-intro-text{
+	padding-top: 10px;
+	max-width: 70%;
+	text-align: center;
+	margin:0 auto;
+}
+
+.neo-slogan{
+	border-bottom: solid 1px rgba(176, 186, 191, 0.5);
+	padding: 50px 0;
+	margin-bottom: 50px;
+}
+
+.neo-slogan-blue{
+    background: #ffffff;
+    background-image: url(/images/background/exagon-pattern.png);
+}
+
+.neo-slogan h2{
+	color: #78909c !important;
+	text-align: center;
+	font-weight: 100;
+    font-size: 2.2rem;
+}
+
+.neo-footer{
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+	margin-bottom: 20px;
+    background:none !important;
+    width: 100%;
+}
+
+.neo-footer img{
+	height:20px;
+	display: inline-block;
+	margin: 0 3px 0 10px;
+}
+
+.neo-footer .container{
+	    color: gray;
+}

@@ -1,0 +1,28 @@
+.neo-intro{
+    color: #fafafa;
+    padding-top: 60px;
+    background-image: url("/images/background/resource.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+	padding-bottom: 30px;
+}
+.neo-content{
+	color: gray;
+    padding-top: 90px !important;
+    background-image: url("/images/background/resource.jpg");
+    background-repeat: repeat-y;
+    background-size: 100%;
+    background-position: center;
+    width: 100%;
+    min-height: 700px;
+    padding-bottom: 1px !important;
+}
+#resources{
+    opacity: 0.6;
+    width: 80%;
+    margin:  0 auto;
+    float: none;
+    bottom: 400px;
+}

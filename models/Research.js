@@ -38,7 +38,7 @@ Research.add({
 		main: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
 	demo: { type: Types.Url },
-	categories: { type: Types.Relationship, ref: 'ReseachCategory', many: true }
+	categories: { type: Types.Relationship, ref: 'ResearchCategory', many: true }
 });
 
 

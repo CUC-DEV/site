@@ -1,0 +1,33 @@
+mixin resource(menus)
+	ul.collapsible(data-collapsible='accordion').popout
+		-var clazz=[]
+		each menu, idx in menus
+			if idx==1
+				-clazz=['active']
+			li
+				.collapsible-header(class=clazz)
+					i.material-icons=menu.icon
+					=menu.name
+				.collapsible-body(id=menu.id)
+					ul.collection
+						li.collection-item.avatar
+							img.circle(src='')
+							span.title Title
+							p.
+								First Line 
+							a.secondary-content(href='#!')
+								i.material-icons input
+						li.collection-item.avatar
+							img.circle(src='')
+							span.title Title
+							p.
+								First Line 
+							a.secondary-content(href='#!')
+								i.material-icons input
+						li.collection-item.avatar
+							img.circle(src='')
+							span.title Title
+							p.
+								First Line 
+							a.secondary-content(href='#!')
+								i.material-icons input

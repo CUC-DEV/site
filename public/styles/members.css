@@ -1,0 +1,39 @@
+.neo-intro{
+    color: #fafafa;
+    padding-top: 60px;
+    background-image: url("/images/background/member.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+	padding-bottom: 30px;
+}
+.neo-content{
+	color: gray;
+    padding-top: 90px !important;
+    background-image: url("/images/background/member.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+span.badge.new:before{
+    content: "合计 " !important;
+}
+
+span.badge.new:after{
+    content: "" !important;
+}
+
+.neo-members{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.neo-member-teacher .img:before{
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.neo-member-student .img:before{
+  box-shadow: inset 0 0 0 2px rgba(255, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}

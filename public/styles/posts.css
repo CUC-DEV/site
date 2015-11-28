@@ -1,0 +1,31 @@
+.neo-intro{
+    color: #fafafa;
+    padding-top: 60px;
+    background-image: url("/images/background/post.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+	padding-bottom: 30px;
+}
+.neo-content{
+	color: gray;
+    padding-top: 90px !important;
+    background-image: url("/images/background/post.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+	padding-bottom: 1px !important;
+}
+#postsMenu{
+    opacity: 0.6;
+}
+
+.post{
+    opacity: 0.8;
+}
+
+.card-title{
+    color: gray !important;
+}

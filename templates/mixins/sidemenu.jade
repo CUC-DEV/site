@@ -1,0 +1,9 @@
+mixin sidemenu(menus)
+	ul.collapsible(data-collapsible='accordion').popout
+		each menu in menus
+			li
+				.collapsible-header
+					i.material-icons=menu.icon
+					=menu.name
+				.collapsible-body(id=menu.id)
+					p Lorem ipsum dolor sit amet.

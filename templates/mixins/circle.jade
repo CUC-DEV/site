@@ -1,0 +1,21 @@
+mixin circle(members, tag, memberStyle)
+	.row
+		.chip=tag
+		span.new.badge=members.length
+	- var i=0;
+	- while(i<members.length)
+		.row
+			- var j=0;
+			- while(j<4 && i<members.length)
+				.col.l3
+					.ih-item.circle(class=memberStyle)
+						a.modal-trigger(href='#memberModal')
+							.spinner
+							.img
+								img(src=members[i].image)
+							.info
+								.info-back
+									h3=members[i].title
+									p=members[i].content
+				- j++
+				- i++
