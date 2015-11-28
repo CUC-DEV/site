@@ -17,9 +17,10 @@ Post.add({
 	title: { type: String, required: true },
 	rank: { type: Number, default: 0 },
 	publishDate: Date,
+	note:{type:String},
 	author: {type: String},
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	type: { type: Types.Select, options: 'home, post, other', default: 'post', index: true },
+	type: { type: Types.Select, options: 'home, post, other', default: 'post', index: true, required:true },
 	images: { type: Types.Relationship, ref: 'Image', many: true },
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	content: {

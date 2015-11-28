@@ -57,7 +57,7 @@ exports = module.exports = function(req, res) {
 	
 	//最近修改
 	view.on('init', function(next) {
-		keystone.list('Post').model.find({state:"published"}).select('title').sort({'updatedAt':-1}).limit(5).exec(function(err, results) {
+		keystone.list('Post').model.find({state:"published", type:'post'}).select('title content').sort({'updatedAt':-1}).limit(5).exec(function(err, results) {
 			
 			if (err) {
 				console.log("not find recents posts ");
@@ -67,6 +67,44 @@ exports = module.exports = function(req, res) {
 			locals.recents = results;
 			next();
 		});
+	});
+	
+	// Load page intro
+	view.on('init', function(next) {
+		
+		keystone.list('Post').model.find({type: "other", note:"posts-intro"}).where('state', 'published').exec(function(err, results) {
+			
+			if (err) {
+				console.log("can't find posts intro ");
+				return next(err);
+			}
+	
+			if(results && results.length>0){
+				locals.intro = results[0];
+				console.log("posts intro "+locals.intro);
+			}
+			next();
+		});
+		
+	});
+	
+	// Load slogan
+	view.on('init', function(next) {
+		
+		keystone.list('Post').model.find({type: "other", note:"posts-slogan"}).where('state', 'published').exec(function(err, results) {
+			
+			if (err) {
+				console.log("can't find posts slogan ");
+				return next(err);
+			}
+	
+			if(results && results.length>0){
+				locals.slogan = results[0];
+				console.log("posts slogan "+locals.slogan);
+			}
+			next();
+		});
+		
 	});
 		
     

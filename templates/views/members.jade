@@ -13,15 +13,16 @@ block slogan
         | Texts, images, videos, we processe everthing.
 block content
     - var member = {};
-    - member.image = '/images/avatars/avatar-m-1.png';
+    - member.image = '/images/avatars/avatar-f-2.png';
     - member.title = '姓名';
     - member.content = '简单介绍,简单介绍,简单介绍简单介绍,简单介绍,简单介绍简单介绍,简单介绍,简单介绍';
-    - members = [member, member, member];
     .row.neo-members
         .col.l12
-            +circle(members, '教师',['neo-member-teacher', 'effect7','left_to_right'])
+            +circle([member, member, member], '教师',['neo-member-teacher', 'effect7','left_to_right'])
+        -member.image = '/images/avatars/avatar-m-2.png'
         .col.l12
             +circle([member, member, member, member, member], '在读', ['neo-member-student','effect9'])
+        -member.image = '/images/avatars/avatar-f-1.png'
         .col.l12
             +circle([member, member, member, member], '毕业', ['neo-member-graduated','effect13'])
 block modal

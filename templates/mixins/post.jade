@@ -1,11 +1,13 @@
-mixin post(title,content, postStyles)
-      .row
-        .card.z-depth-4(class=postStyles)
-          .card-content
-            span.card-title Card Title
-            p
-              | I am a very simple card. I am good at containing small bits of information.
-              | I am convenient because I require little markup to use effectively.
-          .card-action
-            a(href='#') This is a link
-            a(href='#') This is a link
+mixin post(posts, postStyles)
+    -var defaultPost={images:[],title:'新闻标题',content:{brief:'新闻摘要', extended:{html:'<p>新闻正文</p>'}}};
+    if !posts || posts.length == 0
+        -posts = [defaultPost, defaultPost, defaultPost];
+    each post in posts
+        .row
+            .card.z-depth-4(class=postStyles)
+                .card-content
+                    span.card-title=post.title
+                    .neo-post-content
+                        |!{post.content.extended.html}
+                .card-action
+                    a(href='#')分享

@@ -17,11 +17,13 @@ exports.initLocals = function(req, res, next) {
 		{ label: '研究成果',		key: 'researches',		href: '/researches' },
 		{ label: '成员信息',		key: 'members',		href: '/members' },
 		{ label: '资源共享',		key: 'resources',		href: '/resources' },
-		{ label: '课外活动',		key: 'activities',		href: '/activities' },
-		{ label: '联系我们',		key: 'contact',		href: '/contact' }
+		{ label: '课外活动',		key: 'activities',		href: '#' },
+		{ label: '联系我们',		key: 'contact',		href: '#' }
 	];
 	
 	locals.user = req.user;
+	
+	locals.imgPrefix = '/img/';
 	
 	locals.basedir = keystone.get('basedir');
 	
