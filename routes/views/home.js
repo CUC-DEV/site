@@ -16,6 +16,7 @@ exports = module.exports = function(req, res) {
 			}
 	
 			locals.news = results;
+			console.log('news '+results);
 			next();
 		});
 		
