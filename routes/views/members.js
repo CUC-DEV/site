@@ -8,7 +8,7 @@
     	//Load all categories
 	view.on('init', function(next) {
 		
-		keystone.list('Member').model.find({type: "student"}).populate('images').sort('Year.Graduated').exec(function(err, results) {
+		keystone.list('Member').model.find().sort('Year.Graduated').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				console.log("not find news ");

@@ -15,7 +15,7 @@ Member.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, index: true },
 }, 'Profile', {
-	photo: { type: Types.Relationship, ref: 'Image', many: false },
+    photo: { type: Types.Relationship, ref: 'Image', many: false },
 		weibo: { type: String, width: 'short' },
 		website: { type: Types.Url },
 		bio: { type: Types.Markdown },

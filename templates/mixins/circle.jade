@@ -12,10 +12,11 @@ mixin circle(members, tag, memberStyle)
 						a.modal-trigger(href='#memberModal')
 							.spinner
 							.img
-								img(src='img/'+members[i].photo.image.filename)
+							img(src='img/'+members[i].photo.image.filename)
 							.info
 								.info-back
 									h3=members[i].name.first+members[i].name.last
-									p=members[i].dessciption
+									p=members[i].Dessciption
+									
 				- j++
 				- i++
