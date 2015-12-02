@@ -15,7 +15,7 @@ mixin circle(members, tag, memberStyle)
 								img(src=members[i].image)
 							.info
 								.info-back
-									h3=members[i].title
-									p=members[i].content
+									h3=members[i].name.first+members[i].name.first
+									p=members[i].bio
 				- j++
 				- i++
