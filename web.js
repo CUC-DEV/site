@@ -4,7 +4,7 @@ var keystone = require('keystone');
 var pkg = require('./package.json');
 keystone.init({
   
-  'name': 'My Project',
+  'name': '中国传媒大学智能媒体计算实验室',
   
   'favicon': 'public/favicon.ico',
   'less': 'public',

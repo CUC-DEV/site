@@ -20,7 +20,7 @@ Member.add({
 		website: { type: Types.Url },
 		bio: { type: Types.Markdown },
 		type: {type: Types.Select, options: 'student, teacher', default: 'student'},
-		yearGraduated: { type: Types.Number },
+		graduatedDate: { type: Types.Date },
 		dessciption:  { type: Types.Textarea },
 		Achievements: { type: Types.Relationship, ref: 'Achievement', many: true }
 	});

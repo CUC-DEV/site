@@ -5,23 +5,51 @@
     var view = new keystone.View(req, res),
     locals = res.locals;
     
-    	//Load all categories
+    //载入在读成员
 	view.on('init', function(next) {
-		
-		keystone.list('Member').model.find().sort('Year.Graduated').exec(function(err, results) {
+		keystone.list('Member').model.find({'type':'student', 'graduatedDate' :{'$gte': Date.now()}}).sort('-graduatedDate').populate('photo').exec(function(err, results) {
 			
-			if (err || !results.length) {
-				console.log("not find news ");
+			if (err) {
+				console.log("can't find student ");
 				return next(err);
 			}
 			
-			console.log("news length "+results.length);
-			console.log("find news "+results)
-			locals.members = results;
+			locals.students = results;
 			next();
 		});
 		
 	});
+	
+	 //载入毕业成员
+	view.on('init', function(next) {
+		keystone.list('Member').model.find({'type':'student', 'graduatedDate' :{'$lt': Date.now()}}).sort('-graduatedDate').populate('photo').exec(function(err, results) {
+			
+			if (err) {
+				console.log("can't find student ");
+				return next(err);
+			}
+			
+			locals.graduated = results;
+			next();
+		});
+		
+	});
+	
+		 //载入教师成员
+	view.on('init', function(next) {
+		keystone.list('Member').model.find({'type':'teacher'}).populate('photo').exec(function(err, results) {
+			
+			if (err) {
+				console.log("can't find teachers ");
+				return next(err);
+			}
+			
+			locals.teachers = results;
+			next();
+		});
+		
+	});
+	
     view.render('members');
     
 }
