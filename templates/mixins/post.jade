@@ -5,9 +5,11 @@ mixin post(posts, postStyles)
     each post in posts
         .row
             .card.z-depth-4(class=postStyles)
-                .card-content
-                    span.card-title=post.title
-                    .neo-post-content
-                        |!{post.content.extended.html}
+                a.modal-trigger(href='#postModal')
+                  .card-content
+                       span.card-title=post.title
+                        .spinner
+                          .neo-post-content
+                            |!{post.content.extended.html}
                 .card-action
                     a(href='#')分享

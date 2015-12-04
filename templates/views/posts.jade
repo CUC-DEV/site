@@ -2,6 +2,7 @@ extends ../layouts/default
 include ../mixins/sidemenu
 include ../mixins/post
 include ../mixins/pagination
+include ../mixins/postmodal
 block css
     link(rel='stylesheet', type='text/css', href='/styles/posts.css')
 block intro
@@ -27,3 +28,5 @@ block content
             +pagination(null,null,postStyles)
 block js
      script(type='text/javascript', src='/js/post.js')
+block postmodal
+    +postmodal('postModal')
