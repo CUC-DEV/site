@@ -1,7 +1,9 @@
 extends ../layouts/default
-include ../mixins/homenews
+include ../mixins/news
+include ../mixins/homemodal
 block css
     link(rel='stylesheet', type='text/css', href='/styles/home.css')
+    link(rel='stylesheet', type='text/css', href='/lib/ihover.css')
 block intro
     if intro
         +introduction(intro.content.brief, intro.content.extended.html)
@@ -17,6 +19,8 @@ block slogan
         h2
             | Texts, images, videos, we processe everthing.
 block content
-    +homenews(news)
+    +news(news)
     
 block js
+block homemodal
+    +homemodal('homeModal')
