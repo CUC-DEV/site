@@ -1,5 +1,5 @@
 extends ../layouts/default
-include ../mixins/news
+include ../mixins/homenews
 block css
     link(rel='stylesheet', type='text/css', href='/styles/home.css')
 block intro
@@ -17,6 +17,6 @@ block slogan
         h2
             | Texts, images, videos, we processe everthing.
 block content
-    +news(news)
+    +homenews(news)
     
 block js

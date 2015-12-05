@@ -1,0 +1,29 @@
+mixin homenews(news)
+	-var defaultNews={images:[],title:'新闻标题',content:{brief:'新闻摘要', extended:{html:'新闻正文'}}};
+	.row
+		-var i=0, aNews;
+		-while(i<3)
+			if i<news.length
+				-aNews=news[i];
+			else
+				-aNews=defaultNews;
+			.col.s12.m12.l4
+				.card.z-depth-4
+					.card-image.waves-effect.waves-block.waves-light
+						if aNews.images.length > 0
+							img.activator(src=imgPrefix+aNews.images[0].image.filename)
+						else
+							img.activator(src='images/home/cuc-0.jpg')
+					.card-content
+						span.card-title.activator.grey-text.text-darken-4
+							=aNews.title
+							i.material-icons.right more_vert
+							.neo-news-brief
+								| !{aNews.content.brief}
+					.card-reveal
+						span.card-title.red-text.text-darken-4
+							=aNews.title
+							i.material-icons.right close
+						.neo-news-content
+							| !{aNews.content.brief}
+			- i++
