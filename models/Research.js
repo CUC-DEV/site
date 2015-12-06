@@ -34,8 +34,8 @@ Research.add({
 	},
 	images: { type: Types.Relationship, ref: 'Image', many: true },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		main: { type: Types.Html, wysiwyg: true, height: 400 }
+		brief: { type: Types.Markdown, wysiwyg: true, height: 150 },
+		main: { type: Types.Markdown, wysiwyg: true, height: 400 }
 	},
 	demo: { type: Types.Url },
 	categories: { type: Types.Relationship, ref: 'ResearchCategory', many: true }

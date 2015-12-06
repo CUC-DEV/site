@@ -1,13 +1,26 @@
 mixin sidemenu(menus)
 	ul.collapsible(data-collapsible='accordion').popout
-		each menu in menus
 			li
 				.collapsible-header
-					i.material-icons=menu.icon
-					=menu.name
-				.collapsible-body(id=menu.id)
+					i.material-icons=menus[0].icon
+					=menus[0].name
+				.collapsible-body(id=menus[0].id)
 					.collection
-						a.collection-item(href='#!') 条目1
-						a.collection-item(href='#!') 条目2
-						a.collection-item(href='#!') 条目3
-						a.collection-item(href='#!') 条目4
+						each categorie in menus[0].subdirectory
+							a.collection-item(href='#!')=categorie.name				
+			li
+				.collapsible-header
+					i.material-icons=menus[1].icon
+					=menus[1].name
+				.collapsible-body(id=menus[1].id)
+					.collection
+						each categorie in menus[1].subdirectory
+							a.collection-item(href='#!')=categorie.name	
+			li
+				.collapsible-header
+					i.material-icons=menus[2].icon
+					=menus[2].name
+				.collapsible-body(id=menus[2].id)
+					.collection
+						each categorie in menus[2].subdirectory
+							a.collection-item(href='#!')=categorie._id+'('+	categorie.total+')'						

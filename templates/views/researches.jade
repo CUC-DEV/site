@@ -16,13 +16,18 @@ block slogan
 block content
     .row
         .col.s12.m12.l2#postsMenu
-            - var categorie = {name:'类别', icon:'toc', id:'postCategory'};
-            - var archive = {name:'归档', icon:'today', id:'postArchive'};
-            - var date = {name:'时间', icon:'whatshot', id:'postDate'};
-            +sidemenu([categorie, archive, date])
+            - var categorie = {name:'类别', icon:'toc', id:'researchCategory'};
+            - categorie.subdirectory=categories;
+            - var archive = {name:'归档', icon:'today', id:'researchArchive'};
+            - archive.subdirectory=[{name:'计划'},{name:'进行'},{name:'完成'}];            
+            - var date = {name:'时间', icon:'whatshot', id:'researchDate'};
+            - date.subdirectory=archives;          
+            +sidemenu([categorie,archive,date])
+            //p=archives[0].total        
         .col.s12.m12.l10
-            +card([1,2,3,4,5,6,7])
+            +card(researches)
         .row.right
             +pagination(null,null,postStyles)
+
 block js
      script(type='text/javascript', src='/js/researches.js')
