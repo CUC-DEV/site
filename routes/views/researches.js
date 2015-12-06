@@ -34,7 +34,7 @@
 		});
 		
 	});
-		// Load archive by year
+		// Load archive by years
 	view.on('init', function(next) {
 		keystone.list('Research').model.aggregate([
 			{$match:{state:"published", publishedDate:{$exists:true}}},
