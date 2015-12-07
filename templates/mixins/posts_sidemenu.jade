@@ -1,4 +1,4 @@
-mixin sidemenu(menus)
+mixin posts_sidemenu(menus)
 	ul.collapsible(data-collapsible='accordion').popout
 		each menu in menus
 			li
@@ -7,7 +7,6 @@ mixin sidemenu(menus)
 					=menu.name
 				.collapsible-body(id=menu.id)
 					.collection
-						//只实现了动态载入，具体内容还需继续修改
 						if menu.name=='类别'
 							if !categories
 								a.collection-item(href='#!') 空
@@ -17,9 +16,10 @@ mixin sidemenu(menus)
 							if !archives
 								a.collection-item(href='#!') 空
 							each archive in archives
-								//a.collection-item(href='#!')=archive.publishDate
-						if menu.name=='最近'
+								a.collection-item(href='#!')=archive._id
+						if menu.name=='最新'
 							if !recents
 								a.collection-item(href='#!') 空
-							//each recent in recents
+							each recent in recents
+								a.collection-item(href='#!')=recent.title
 						
