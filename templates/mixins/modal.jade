@@ -2,6 +2,6 @@ mixin modal(id)
 	.modal.modal-fixed-footer(id=id)
 		.modal-content
 			h4 个人简历
-			p  jj
+			p=member.bio.html
 		.modal-footer
-			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') 微博
+			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href=member.weibo) 微博
