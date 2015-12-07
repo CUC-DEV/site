@@ -8,7 +8,7 @@
     	//Load all categories
 	view.on('init', function(next) {
 		
-		keystone.list('Research').model.find({}).where('state', 'published').populate('images').sort('rank').exec(function(err, results) {
+		keystone.list('Research').model.find({}).populate('images').sort('rank').exec(function(err, results) {
 			
 			if (err) {
 				console.log("not find research ");
@@ -37,7 +37,7 @@
 		// Load archive by years
 	view.on('init', function(next) {
 		keystone.list('Research').model.aggregate([
-			{$match:{state:"published", publishedDate:{$exists:true}}},
+			{$match:{year:{$exists:true}}},
 			{ $group: { _id: "$year", total: { $sum: 1 } } },
 			{ $sort: { _id: -1 }  }], function(err, results){
 				if(err){
