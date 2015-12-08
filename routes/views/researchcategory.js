@@ -93,7 +93,7 @@
 
     // Load categories
 	view.on('init', function(next) {
-		keystone.list('ResearchCategory').model.find().select('name').exec(function(err, results) {
+		keystone.list('ResearchCategory').model.find().sort('_id').exec(function(err, results) {
 			
 			if (err) {
 				console.log("not find research categories ");
