@@ -1,7 +1,5 @@
 extends ../layouts/default
-include ../mixins/posts_sidemenu
 include ../mixins/post
-include ../mixins/pagination
 block css
     link(rel='stylesheet', type='text/css', href='/styles/posts.css')
 block intro
@@ -15,15 +13,9 @@ block slogan
 
 block content
     .row
-        .col.s12.m12.l2#postsMenu
-            - var categorie = {name:'类别', icon:'toc', id:'postCategory'};
-            - var archive = {name:'归档', icon:'today', id:'postArchive'};
-            - var recent = {name:'最新', icon:'whatshot', id:'postRecent'};
-            +posts_sidemenu([recent, categorie, archive])
-        .col.s12.m12.l10
+        .col.s12.m12.l12
             -var postStyles=['post']
-            +post(recents,postStyles,'posts')
-        .row.right
-            +pagination(null,null,postStyles)
+            //此处recent应该替换掉
+            +post(recents,postStyles,'post')
 block js
      script(type='text/javascript', src='/js/post.js')
