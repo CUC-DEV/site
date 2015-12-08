@@ -1,13 +1,15 @@
 var _ = require('underscore');
 var keystone = require('keystone');
-//var member= keystone.list('member');
+var member = keystone.list('Member');
 
-//exports = module.exports = function (req, res) {
-//	member.model.findOne({ name: req.params.name }).exec(function (err,member)
-//	$('a.neo-member').click(function(){
-//		var id=$(this).data('member');
-//		$.getJson('/member/'+id,function(data){
-//			var memberDiv=$('#memberModal');
-//			memberDiv.find('[name='name']').text(data.name)
-//		}
-//	}
+exports = module.exports = function (req, res) {
+	member.model.findOne({id: req.params.id}).exec(function (err, member) {
+		if (member){
+			
+				res.json({bio: member.bio,weibo:member.weibo});
+		}
+		else{
+			res.json(member);
+		}		
+		
+})}

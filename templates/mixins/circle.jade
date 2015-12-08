@@ -9,7 +9,7 @@ mixin circle(members, tag, memberStyle)
 			- while(j<4 && i<members.length)
 				.col.l3
 					.ih-item.circle(class=memberStyle)
-						a.modal-trigger.neo-member(href='#memberModal')
+						a.modal-trigger.neo-member(href='#memberModal',data-member=member[i])
 							.spinner
 							.img
 								img(src='img/'+members[i].photo.image.filename)
