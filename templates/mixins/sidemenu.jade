@@ -7,7 +7,19 @@ mixin sidemenu(menus)
 					=menu.name
 				.collapsible-body(id=menu.id)
 					.collection
-						a.collection-item(href='#!') 条目1
-						a.collection-item(href='#!') 条目2
-						a.collection-item(href='#!') 条目3
-						a.collection-item(href='#!') 条目4
+						//只实现了动态载入，具体内容还需继续修改
+						if menu.name=='类别'
+							if !categories
+								a.collection-item(href='#!') 空
+							each category in categories
+								a.collection-item(href='#!')=category.name
+						if menu.name=='归档'
+							if !archives
+								a.collection-item(href='#!') 空
+							each archive in archives
+								//a.collection-item(href='#!')=archive.publishDate
+						if menu.name=='最近'
+							if !recents
+								a.collection-item(href='#!') 空
+							//each recent in recents
+						
