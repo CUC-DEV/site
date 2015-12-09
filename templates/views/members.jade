@@ -32,9 +32,10 @@ block js
                                   //从元素返回数据
 						         var id=$(this).data('member');
                                  //从数据库中获取数据并给回调函数处理
-		        $.getJson('/member/'+id,function(data){
+		        $.getJson('/ajax/member/:'+id,function(data){
 					 			     var memberDiv=$('#memberModal');
 			                         memberDiv.find('p').html('data.bio');
+                                     memberDiv.find('a.btn-flat')attr("herf",data.weibo)
 				 //}	
 				}
 	

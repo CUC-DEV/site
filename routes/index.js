@@ -39,6 +39,6 @@ exports = module.exports = function(app) {
     app.get('/activities', routes.views.activities);
     //app.get('/contact', routes.views.contact);
     app.get('/ajax/category/:name', routes.ajaxs.postCategory);
-    app.get('/ajax/member/:id', routes.ajaxs.memberBio);
+    app.get('/ajax/member/:id', routes.ajaxs.member);
 
 }
