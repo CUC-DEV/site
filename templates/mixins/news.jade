@@ -4,12 +4,12 @@ mixin news(news)
 		-var i=0, aNews;
 		-while(i<3)
 			if i<news.length
-				-aNews=news[i];
+				-aNews=news[i];aNews.id=news[i].ObjectId ;
 			else
-				-aNews=defaultNews;
+				-aNews=defaultNews;aNews.id=0000;
 			.col.s12.m12.l4
 				.card.z-depth-4
-					.card-image.waves-effect.waves-block.waves-light
+					a.card-image.waves-effect.waves-block.waves-light(href='/posts/#{aNews.id}')
 						if aNews.images.length > 0
 							img.activator(src=imgPrefix+aNews.images[0].image.filename)
 						else
