@@ -34,6 +34,8 @@ exports = module.exports = function(app) {
 
     app.get('/posts', routes.views.posts);
     app.get('/researches', routes.views.researches);
+    //研究成果详情页面
+    app.get('/researches/detail/:id', routes.views.researchdetail);    
     //研究成果筛选页面
     app.get('/researches/:item/:name', routes.views.researchcategory);
     app.get('/members', routes.views.members);

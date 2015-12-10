@@ -17,7 +17,7 @@ mixin sidemenu(menus)
 					.collection
 						a.collection-item(href='/researches') 显示全部					
 						each categorie in menus[1].subdirectory
-							a.collection-item(href='/researches/state/#{categorie.name}')=categorie.name	
+							a.collection-item(href='/researches/state/#{categorie.name}')=categorie.name_c	
 			li
 				.collapsible-header
 					i.material-icons=menus[2].icon
