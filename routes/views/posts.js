@@ -69,6 +69,20 @@ exports = module.exports = function(req, res) {
 		});
 	});
 	
+	//加载所有已发布的文章
+	view.on('init', function(next) {
+		keystone.list('Post').model.find({state:"published", type:'post'}).select('title content').sort({'updatedAt':-1}).exec(function(err, results) {
+			
+			if (err) {
+				console.log("not find recents posts ");
+				return next(err);
+			}
+			console.log('recents'+results);
+			locals.posts = results;
+			next();
+		});
+	});		
+	
 	// Load page intro
 	view.on('init', function(next) {
 		

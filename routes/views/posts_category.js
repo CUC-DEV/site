@@ -5,6 +5,73 @@ exports = module.exports = function(req, res) {
     
     var view = new keystone.View(req, res),
     locals = res.locals;
+	var getitem=req.params.item;
+    var getname=req.params.name;
+    
+    
+	if(getitem=='categorie'){
+	//按照‘类别’进行查找
+	////先找到对应‘类别’的_id值
+	view.on('init', function(next) {
+		keystone.list('PostCategory').model.find({name:getname},{'_id':1}).exec(function(err, result) {
+			
+			if (err) {
+				console.log("not find news ");
+				return next(err);
+			}
+	
+			locals._id= result;
+			next();
+		});
+	});
+	////对特定的_id进行查找
+	view.on('init', function(next) {
+		
+		keystone.list('Post').model.find({state:"published", type:'post',categories:locals._id}).sort('rank').exec(function(err, results) {
+			
+			if (err) {
+				console.log("not find news ");
+				return next(err);
+			}
+	
+			locals.posts = results;
+			next();
+		});
+		
+	});	
+	}else if(getitem=='state'){
+	//按照‘归档’进行查找	
+	view.on('init', function(next) {
+		
+		keystone.list('Research').model.find({year:getname,state:"published",type:'post'}).sort('rank').exec(function(err, results) {
+			
+			if (err) {
+				console.log("not find news ");
+				return next(err);
+			}
+	
+			locals.posts = results;
+			next();
+		});
+		
+	});		
+		
+	}else{
+    	//加载所有已发布的文章
+	view.on('init', function(next) {
+		keystone.list('Post').model.find({state:"published", type:'post'}).select('title content').sort({'updatedAt':-1}).exec(function(err, results) {
+			
+			if (err) {
+				console.log("not find recents posts ");
+				return next(err);
+			}
+			console.log('recents'+results);
+			locals.posts = results;
+			next();
+		});
+	});		
+		
+	}
     
    	// Load rank article
 	view.on('init', function(next) {
@@ -69,6 +136,7 @@ exports = module.exports = function(req, res) {
 		});
 	});
 	
+	
 	// Load page intro
 	view.on('init', function(next) {
 		
@@ -108,6 +176,6 @@ exports = module.exports = function(req, res) {
 	});
 		
     
-    view.render('post');
+    view.render('posts');
     
 }
