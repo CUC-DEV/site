@@ -1,0 +1,18 @@
+extends ../layouts/default
+include ../mixins/researchslider
+include ../mixins/card
+
+block content
+    +researchslider(researches)
+    //+card(researches)
+    p
+    p 中国传媒大学
+    p 中国传媒大学
+
+block js
+     script(type='text/javascript', src='/js/researches.js')
+     script(type='text/javascript').
+            $(document).ready(function(){
+            $('.slider').slider({full_width: true});
+            });
+        

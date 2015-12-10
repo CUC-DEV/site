@@ -1,0 +1,32 @@
+mixin researchslider(researches)
+      .slider()
+        ul.slides
+             each picture in researches[0].images
+                  li
+                    img(src='img/'+picture.image.filename)
+                    .caption.center-align
+                      h3 #{picture.title}
+                      h5.light.grey-text.text-lighten-3 #{picture.title}              
+            //  li
+            //    img(src='img/'+researches[0].images[0].image.filename)
+            //    .caption.center-align
+            //      h3 #{researches.length}
+            //      h5.light.grey-text.text-lighten-3 #{researches[0].images.length} 
+            // li
+            //   img(src='http://lorempixel.com/580/250/nature/2')
+           
+            //   .caption.left-align
+            //     h3 Left Aligned Caption
+            //     h5.light.grey-text.text-lighten-3 Here's our small slogan.
+            // li
+            //   img(src='http://lorempixel.com/580/250/nature/3')
+            
+            //   .caption.right-align
+            //     h3 Right Aligned Caption
+            //     h5.light.grey-text.text-lighten-3 Here's our small slogan.
+            // li
+            //   img(src='http://lorempixel.com/580/250/nature/4')
+            
+            //   .caption.center-align
+            //     h3 This is our big Tagline!
+            //     h5.light.grey-text.text-lighten-3 Here's our small slogan.
