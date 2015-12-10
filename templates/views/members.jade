@@ -12,8 +12,6 @@ block slogan
     h2
         | Texts, images, videos, we processe everthing.
 block content
-    
-    
     .row.neo-members
         .col.l12
             +circle(teachers, '教师',['neo-member-teacher', 'effect13'])
@@ -27,17 +25,19 @@ block modal
     +modal('memberModal')
 block js
      script(type='text/javascript').
-      $(document).ready(function(){
-                $('a.neo-member').bind('click',function () {
-                                  //从元素返回数据
-						         var id=$(this).data('member');
-                                 //从数据库中获取数据并给回调函数处理
-		        $.getJson('/ajax/member/:'+id,function(data){
-					 			     var memberDiv=$('#memberModal');
-			                         memberDiv.find('p').html('data.bio');
-                                     memberDiv.find('a.btn-flat')attr("herf",data.weibo)
-				 //}	
-				}
-	
-                }
+        $(document).ready(function(){
+                    $('a.neo-member').click(function () {
+                        //从元素返回数据
+                        var id=$(this).data('member');
+                        //从数据库中获取数据并给回调函数处理
+                        $.getJSON('/ajax/member/'+id,function(res){
+                            if(res.status == 'ok'){
+                                var data = res.data;
+                                var memberDiv=$('#memberModal');
+                                memberDiv.find('div').html(data.bio.html);
+                                memberDiv.find('a.modal-action').attr("herf",data.weibo);	
+                            }
+                        });
+                    });
+        });
         
