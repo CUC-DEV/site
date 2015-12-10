@@ -12,14 +12,15 @@ mixin post(posts, postStyles,number)
                           .neo-post-content
                             |!{post.content.brief}
                     .card-action
-                        a(href='#') 展开全文
+                        a(href='/posts/#{post._id}') 展开全文
     if number == 'post'
-        //由于暂时没有做好传单个文章参数，这里的each暂时没有去掉
-        each post in posts
-            .row
+        -var post=posts;
+             .row
                 .card.z-depth-4(class=postStyles)
                    .card-content
                        span.card-title=post.title
                         .spinner
                           .neo-post-content
                             |!{post.content.extended.html}
+                    .card-action
+                        a(href='/posts/#{post._id}') 展开全文 
