@@ -6,7 +6,7 @@ mixin news(news)
 			if i<news.length
 				-aNews=news[i];aNews.id=news[i].ObjectId ;
 			else
-				-aNews=defaultNews;aNews.id=0000;
+				-aNews=defaultNews;
 			.col.s12.m12.l4
 				.card.z-depth-4
 					a.card-image.waves-effect.waves-block.waves-light(href='/posts/#{aNews.id}')
