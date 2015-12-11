@@ -33,7 +33,7 @@ exports = module.exports = function(app) {
     app.get('/', routes.views.home);
 
     app.get('/posts', routes.views.posts);
-    app.get('/posts/:id',routes.views.post);
+    app.get('/posts/:title',routes.views.homepost);
     app.get('/researches', routes.views.researches);
     app.get('/members', routes.views.members);
     app.get('/resources', routes.views.resources);
