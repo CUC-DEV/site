@@ -1,0 +1,18 @@
+.bbox{
+	  border: 1px solid #DFDFDF;
+	  border-radius: 5px;
+	  margin-bottom:30px;
+	  padding: 50px;
+	  text-align: center;
+}
+.cbox{
+	  margin-bottom: 30px;
+	  color: #FFF;
+	  padding: 50px;
+	}
+h2{
+	text-align: center;
+}
+.orange{
+	  background: orange;
+	}

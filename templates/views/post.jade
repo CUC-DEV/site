@@ -1,0 +1,20 @@
+extends ../layouts/default
+include ../mixins/post
+block css
+    link(rel='stylesheet', type='text/css', href='/styles/posts.css')
+block intro
+    -var defaultIntro = {content:{brief:'记录发展历程', extended:{html:'每一次成功,我们欢笑,勇攀高峰;每一次失败,我们低落,但勇往直前'}}};
+    -var intro=intro||defaultIntro;
+    +introduction(intro.content.brief, intro.content.extended.html)
+
+block slogan
+    h2
+        | Texts, images, videos, we process everthing.
+
+block content
+    .row
+        .col.s12.m12.l12
+            -var postStyles=['post']
+            +post(post,postStyles,'post')
+block js
+     script(type='text/javascript', src='/js/post.js')

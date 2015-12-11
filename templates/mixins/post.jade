@@ -2,6 +2,7 @@ mixin post(posts, postStyles)
     -var defaultPost={images:[],title:'新闻标题',content:{brief:'新闻摘要', extended:{html:'<p>新闻正文</p>'}}};
     if !posts || posts.length == 0
         -posts = [defaultPost, defaultPost, defaultPost];
+<<<<<<< Updated upstream
     each post in posts
         .row
             .card.z-depth-4(class=postStyles)
