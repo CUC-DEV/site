@@ -1,13 +1,15 @@
-mixin post(posts, postStyles)
+mixin post(post, postStyles)
     -var defaultPost={images:[],title:'新闻标题',content:{brief:'新闻摘要', extended:{html:'<p>新闻正文</p>'}}};
-    if !posts || posts.length == 0
-        -posts = [defaultPost, defaultPost, defaultPost];
+    if !post || post.length == 0
+        -post = [defaultPost, defaultPost, defaultPost];
     each post in posts
         .row
             .card.z-depth-4(class=postStyles)
-                .card-content
-                    span.card-title=post.title
-                    .neo-post-content
-                        |!{post.content.extended.html}
+                a.modal-trigger(href='#postModal')
+                  .card-content
+                       span.card-title=post.title
+                        .spinner
+                          .neo-post-content
+                            |!{post.content.extended.html}
                 .card-action
                     a(href='#')分享

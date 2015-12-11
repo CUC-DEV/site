@@ -27,3 +27,4 @@ mixin sidemenu(menus)
 						a.collection-item(href='/researches') 显示全部					
 						each categorie in menus[2].subdirectory
 							a.collection-item(href='/researches/date/#{categorie._id}')=categorie._id+'('+	categorie.total+')'						
+
