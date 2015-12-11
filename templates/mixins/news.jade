@@ -4,7 +4,7 @@ mixin news(news)
 		-var i=0, aNews;
 		-while(i<3)
 			if i<news.length
-				-aNews=news[i];aNews.id=news[i].ObjectId ;
+				-aNews=news[i];
 			else
 				-aNews=defaultNews;
 			.col.s12.m12.l4
@@ -25,5 +25,5 @@ mixin news(news)
 							=aNews.title
 							i.material-icons.right close
 						.neo-news-content
-							| !{aNews.content.brief}
+							| !{aNews.content.extended.html}
 			- i++

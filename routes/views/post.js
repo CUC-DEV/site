@@ -5,10 +5,11 @@ exports = module.exports = function(req, res) {
     
     var view = new keystone.View(req, res),
     locals = res.locals;
+    var getid=req.params.title;
     
    	// Load rank article
 	view.on('init', function(next) {
-		keystone.list('Post').model.find({type: "post"}).where('state', 'published').sort('rank').limit(1).exec(function(err, result) {
+		keystone.list('Post').model.find({type: "Home"}).where('state', 'published').sort('rank').limit(1).exec(function(err, result) {
 			
 			if (err) {
 				console.log("not find news ");
@@ -38,36 +39,19 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	// Load archive by year
+	//加载所要的文章
 	view.on('init', function(next) {
-		keystone.list('Post').model.aggregate([
-			{$match:{state:"published", publishDate:{$exists:true}}},
-			{ $group: { _id: { $year: "$publishDate" }, total: { $sum: 1 } } },
-			{ $sort: { total: -1 }  }], function(err, results){
-				if(err){
-					console.log("cant't aggregate post");
-					return next(err);
-				}
-				
-				console.log('archive'+results[0]);
-				locals.archives = results;
-				next();
-			})
-	});
-	
-	//最近修改
-	view.on('init', function(next) {
-		keystone.list('Post').model.find({state:"published", type:'post'}).select('title content').sort({'updatedAt':-1}).limit(5).exec(function(err, results) {
+		keystone.list('Post').model.find({_id:getid}).exec(function(err, result) {
 			
 			if (err) {
-				console.log("not find recents posts ");
+				console.log("not find post ");
 				return next(err);
 			}
-			console.log('recents'+results);
-			locals.recents = results;
+			console.log('article'+result);
+			locals.post = result;
 			next();
 		});
-	});
+	});		
 	
 	// Load page intro
 	view.on('init', function(next) {
