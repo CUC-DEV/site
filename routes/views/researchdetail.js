@@ -4,11 +4,10 @@
     
     var view = new keystone.View(req, res),
     locals = res.locals;
-    
-    	//Load all categories
-	view.on('init', function(next) {
+    var getid=req.params.id;
+    view.on('init', function(next) {
 		
-		keystone.list('Research').model.find({}).populate('images').sort('rank').exec(function(err, results) {
+		keystone.list('Research').model.find({_id:getid}).populate('images').sort('rank').exec(function(err, results) {
 			
 			if (err) {
 				console.log("not find research ");
@@ -19,8 +18,8 @@
 			next();
 		});
 		
-	});
-    	// Load categories
+	});	
+	    	// Load categories
 	view.on('init', function(next) {
 		keystone.list('ResearchCategory').model.find().sort('_id').exec(function(err, results) {
 			
@@ -51,7 +50,7 @@
 				next();
 			})
 	});
-	
-    view.render('researches');
+    
+    view.render('researchdetail');
     
 }

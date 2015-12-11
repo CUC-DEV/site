@@ -1,0 +1,31 @@
+mixin sidemenu(menus)
+	ul.collapsible(data-collapsible='accordion').popout
+			li
+				.collapsible-header
+					i.material-icons=menus[0].icon
+					=menus[0].name
+				.collapsible-body(id=menus[0].id)
+					.collection
+						a.collection-item(href='/researches') 显示全部
+						each categorie in menus[0].subdirectory
+							a.collection-item(href='/researches/categorie/#{categorie.name}')=categorie.label										
+			li
+				.collapsible-header
+					i.material-icons=menus[1].icon
+					=menus[1].name
+				.collapsible-body(id=menus[1].id)
+					.collection
+						a.collection-item(href='/researches') 显示全部					
+						each categorie in menus[1].subdirectory
+							a.collection-item(href='/researches/state/#{categorie.name}')=categorie.name_c	
+			li
+				.collapsible-header
+					i.material-icons=menus[2].icon
+					=menus[2].name
+				.collapsible-body(id=menus[2].id)
+					.collection
+						a.collection-item(href='/researches') 显示全部					
+						each categorie in menus[2].subdirectory
+							a.collection-item(href='/researches/date/#{categorie._id}')=categorie._id+'('+	categorie.total+')'						
+
+ 

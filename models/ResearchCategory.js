@@ -12,7 +12,8 @@ var ResearchCategory = new keystone.List('ResearchCategory', {
 });
 
 ResearchCategory.add({
-	name: { type: String, required: true }
+	name: { type: String, required: true },
+	label: {type: String, required: true, initial:true}
 });
 
 

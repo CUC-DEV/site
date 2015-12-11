@@ -9,7 +9,7 @@ mixin news(news)
 				-aNews=defaultNews;
 			.col.s12.m12.l4
 				.card.z-depth-4
-					.card-image.waves-effect.waves-block.waves-light
+					a.card-image(href='/posts/#{aNews.id}')
 						if aNews.images.length > 0
 							img.activator(src=imgPrefix+aNews.images[0].image.filename)
 						else
