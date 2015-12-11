@@ -7,6 +7,7 @@ exports = module.exports = function(req, res) {
     locals = res.locals;
 	var getitem=req.params.item;
     var getname=req.params.name;
+	var nextyear=getname.parseInt()+1;
     
     
 	if(getitem=='categorie'){
@@ -43,7 +44,7 @@ exports = module.exports = function(req, res) {
 	//按照‘归档’进行查找	
 	view.on('init', function(next) {
 		
-		keystone.list('Research').model.find({year:getname,state:"published",type:'post'}).sort('rank').exec(function(err, results) {
+		keystone.list('Post').model.find({publishDate: {$gt: new Date(getname+'/01/01 00:00:00'), $lt: new Date(nextyear.toString()+'/01/01 00:00:00')},state:"published",type:'post'}).sort('rank').exec(function(err, results) {
 			
 			if (err) {
 				console.log("not find news ");
@@ -54,7 +55,9 @@ exports = module.exports = function(req, res) {
 			next();
 		});
 		
-	});		
+	});	
+	
+		
 		
 	}else{
     	//加载所有已发布的文章

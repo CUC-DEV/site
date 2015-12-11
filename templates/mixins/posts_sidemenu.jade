@@ -24,5 +24,5 @@ mixin posts_sidemenu(menus)
 								a.collection-item(href='#!') 空
 							a.collection-item(href='/posts') 显示全部
 							each recent in recents
-								a.collection-item(href='posts/#{recent._id}')=recent.title
+								a.collection-item(href='/posts/#{recent._id}')=recent.title
 						

@@ -14,13 +14,10 @@ mixin post(posts, postStyles,number)
                     .card-action
                         a(href='/posts/#{post._id}') 展开全文
     if number == 'post'
-        -var post=posts;
              .row
                 .card.z-depth-4(class=postStyles)
                    .card-content
-                       span.card-title=post.title
+                       span.card-title=posts[0].title
                         .spinner
                           .neo-post-content
-                            |!{post.content.extended.html}
-                    .card-action
-                        a(href='/posts/#{post._id}') 展开全文 
+                            |!{posts[0].content.extended.html}
