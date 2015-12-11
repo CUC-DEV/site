@@ -5,3 +5,4 @@
 - 后台地址为localhost:3000/keystone
 - 账户密码在updates/0.0.1-admin.js中 
 - 不要提交.env文件
+- 确保自己的代码合并后可以运行
