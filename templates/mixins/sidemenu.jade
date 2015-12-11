@@ -11,12 +11,12 @@ mixin sidemenu(menus)
 						if menu.name=='类别'
 							if !categories
 								a.collection-item(href='#!') 空
-							each category in categories
+							//each category in categories
 								a.collection-item(href='#!')=category.name
 						if menu.name=='归档'
 							if !archives
 								a.collection-item(href='#!') 空
-							each archive in archives
+							//each archive in archives
 								//a.collection-item(href='#!')=archive.publishDate
 						if menu.name=='最近'
 							if !recents
