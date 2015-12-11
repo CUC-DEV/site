@@ -1,8 +1,9 @@
-extends ../layouts/researchdefault
+extends ../layouts/default
 include ../mixins/researchslider
 include ../mixins/card
 include ../mixins/sidemenu
-
+block css
+    link(rel='stylesheet', type='text/css', href='/styles/research/researchdetail.css')
 block content
     .row
         .col.s12.m12.l2#postsMenu
@@ -13,11 +14,24 @@ block content
             - var date = {name:'时间', icon:'whatshot', id:'researchDate'};
             - date.subdirectory=archives;          
             +sidemenu([categorie,archive,date])
-        .col.s12.m12.l10
-            .col-md-5
-                +researchslider(researches)
-            .col-md-5
+        .col.s12.m12.l10.bbox
+            .col.s12.l10.offset-l1.bbox
                 h1 #{researches[0].title}
+            .col.s12.l5.offset-l1.bbox
+                +researchslider(researches)
+            .col.s12.l5.bbox
+                h4 简介            
+                h5 
+                  |!{researches[0].content.brief.html}
+            .col.s12.l10.offset-l1.bbox
+                h4 主要内容                        
+                h6 
+                  |!{researches[0].content.main.html}
+            .col.s12.l10.offset-l1.bbox
+                h4 研究进度
+                 .progress
+                    .determinate(style='width: #{researches[0].process}')            
+               
 
 block js
      script(type='text/javascript', src='/js/researches.js')

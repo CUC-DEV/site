@@ -37,6 +37,7 @@ Research.add({
 		brief: { type: Types.Markdown, wysiwyg: true, height: 150 },
 		main: { type: Types.Markdown, wysiwyg: true, height: 400 }
 	},
+	process:{type: String, required: true,default:'0%'},
 	demo: { type: Types.Url },
 	categories: { type: Types.Relationship, ref: 'ResearchCategory', many: true }
 });
