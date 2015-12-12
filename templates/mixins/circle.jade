@@ -9,13 +9,14 @@ mixin circle(members, tag, memberStyle)
 			- while(j<4 && i<members.length)
 				.col.l3
 					.ih-item.circle(class=memberStyle)
-						a.modal-trigger(href='#memberModal')
+						a.modal-trigger.neo-member(href='#memberModal',data-member=members[i].id)
 							.spinner
 							.img
-								img(src=members[i].image)
+								img(src=imgPrefix+members[i].photo.image.filename)
 							.info
 								.info-back
-									h3=members[i].title
-									p=members[i].content
+									h3=members[i].name.first+members[i].name.last
+									p=members[i].dessciption
+									
 				- j++
 				- i++

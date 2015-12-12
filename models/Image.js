@@ -37,7 +37,7 @@ Image.add({
  */
 
 Image.relationship({ ref: 'Post', refPath: 'images', path: 'posts' });
-Image.relationship({ ref: 'Member', refPath: 'photo', path: 'memebers' });
+Image.relationship({ ref: 'Member', refPath: 'photo', path: 'members' });
 Image.relationship({ ref: 'Research', refPath: 'images', path: 'researches' });
 
 /**
