@@ -1,8 +1,5 @@
 extends ../layouts/default
-include ../mixins/sidemenu
 include ../mixins/post
-include ../mixins/pagination
-include ../mixins/postmodal
 block css
     link(rel='stylesheet', type='text/css', href='/styles/posts.css')
 block intro
@@ -16,17 +13,8 @@ block slogan
 
 block content
     .row
-        .col.s12.m12.l2#postsMenu
-            - var categorie = {name:'类别', icon:'toc', id:'postCategory'};
-            - var archive = {name:'归档', icon:'today', id:'postArchive'};
-            - var recent = {name:'最新', icon:'whatshot', id:'postRecent'};
-            //+sidemenu([recent, categorie, archive])
-        .col.s12.m12.l10
+        .col.s12.m12.l12
             -var postStyles=['post']
-            //+post(post[0],postStyles)
-        .row.right
-            +pagination(null,null,postStyles)
+            +post(post,postStyles,'post')
 block js
      script(type='text/javascript', src='/js/post.js')
-block postmodal
-    +postmodal('postModal')

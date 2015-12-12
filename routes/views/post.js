@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
     
    	// Load rank article
 	view.on('init', function(next) {
-		keystone.list('Post').model.find({type: "Home"}).where('state', 'published').sort('rank').limit(1).exec(function(err, result) {
+		keystone.list('Post').model.find({type: "post"}).where('state', 'published').sort('rank').limit(1).exec(function(err, result) {
 			
 			if (err) {
 				console.log("not find news ");

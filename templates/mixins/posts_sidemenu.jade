@@ -1,0 +1,28 @@
+mixin posts_sidemenu(menus)
+	ul.collapsible(data-collapsible='accordion').popout
+		each menu in menus
+			li
+				.collapsible-header
+					i.material-icons=menu.icon
+					=menu.name
+				.collapsible-body(id=menu.id)
+					.collection
+						if menu.name=='类别'
+							if !categories
+								a.collection-item(href='#!') 空
+							a.collection-item(href='/posts') 显示全部
+							each category in categories
+								a.collection-item(href='/posts/categorie/#{category.name}')=category.name
+						if menu.name=='归档'
+							if !archives
+								a.collection-item(href='#!') 空
+							a.collection-item(href='/posts') 显示全部
+							each archive in archives
+								a.collection-item(href='/posts/state/#{archive._id}')=archive._id+'('+ archive.total+')'
+						if menu.name=='最新'
+							if !recents
+								a.collection-item(href='#!') 空
+							a.collection-item(href='/posts') 显示全部
+							each recent in recents
+								a.collection-item(href='/posts/#{recent._id}')=recent.title
+						

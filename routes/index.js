@@ -33,7 +33,8 @@ exports = module.exports = function(app) {
     app.get('/', routes.views.home);
 
     app.get('/posts', routes.views.posts);
-    app.get('/posts/:title',routes.views.homepost);
+    app.get('/posts/:item/:name',routes.views.posts_category);
+    app.get('/posts/:title',routes.views.post);
     app.get('/researches', routes.views.researches);
     //研究成果详情页面
     app.get('/researches/detail/:id', routes.views.researchdetail);    
