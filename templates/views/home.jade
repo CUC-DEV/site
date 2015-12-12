@@ -3,20 +3,9 @@ include ../mixins/news
 block css
     link(rel='stylesheet', type='text/css', href='/styles/home.css')
 block intro
-    if intro
-        +introduction(intro.content.brief, intro.content.extended.html)
-    else
-        -var title='智能媒体计算实验室'
-        -var text='中国传媒大学存储实验室长期从事信息存储的理论研究和网络存储技术开发，和国家信息中心合建存储技术工程中心，和声讯公司、中科院声学所合建安防大数据北京市重大实验室，系存储产业技术创新战略联盟首批成员单位,海量存储标准工作委员会成员单位。'
-        +introduction(title, text)
-  
+    +introduction(intro.content.brief, intro.content.detail)
 block slogan
-    if slogan
-         !{slogan.content.extended.html}
-    else
-        h2
-            | Texts, images, videos, we processe everthing.
+     !{slogan.content.detail}
 block content
     +news(news)
-    
 block js
