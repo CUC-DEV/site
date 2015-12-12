@@ -11,6 +11,6 @@ exports = module.exports = function (req, res) {
 			res.json({status:'err'})
 		}
 	//可以添加更多的信息,暂时只返回bio作为示例
-		res.json({status:'ok',data:{bio:member.bio, weibo: member.weibo}});
+		res.json({status:'ok',data:{bio:member.bio,weibo:member.weibo,mem:member.name,website:member.website}});
 	});
 }
