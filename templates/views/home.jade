@@ -2,10 +2,6 @@ extends ../layouts/default
 include ../mixins/news
 block css
     link(rel='stylesheet', type='text/css', href='/styles/home.css')
-block intro
-    +introduction(intro.content.brief, intro.content.detail)
-block slogan
-     !{slogan.content.detail}
 block content
     +news(news)
 block js

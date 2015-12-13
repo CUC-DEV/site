@@ -1,23 +1,25 @@
-mixin post(posts, postStyles,number)
-    -var defaultPost={images:[],title:'新闻标题',content:{brief:'新闻摘要', extended:{html:'<p>新闻正文</p>'}}};
-    if !posts || posts.length == 0
-        -posts = [defaultPost, defaultPost, defaultPost];
-    if number == 'posts'
-        each post in posts
+mixin post(posts, postStyles)
+    if posts && posts.length
+        if posts.length > 1
+            each post in posts
+                .row
+                    .card.z-depth-4(class=postStyles)
+                       .card-content
+                           span.card-title=post.title
+                            .spinner
+                                .neo-post-content=post.content.brief
+                            .card-action
+                                a(target="_blank", href=post.url) 详细
+        else
+            -var post = posts[0]
             .row
                 .card.z-depth-4(class=postStyles)
-                   .card-content
-                       span.card-title=post.title
+                    .card-content
+                        span.card-title=post.title
                         .spinner
-                          .neo-post-content
-                            |!{post.content.brief}
-                    .card-action
-                        a(href='/posts/#{post._id}') 展开全文
-    if number == 'post'
-             .row
-                .card.z-depth-4(class=postStyles)
-                   .card-content
-                       span.card-title=posts[0].title
-                        .spinner
-                          .neo-post-content
-                            |!{posts[0].content.extended.html}
+                            .neo-post-content
+                                | !{post.content.detail}
+                        .card-action
+                            // 添加微博分享
+                            a(href='#') 分享
+

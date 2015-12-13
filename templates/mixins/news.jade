@@ -1,5 +1,5 @@
 mixin news(posts)
-    -var defaultNews={id:'', images:[],title:'新闻标题',content:{brief:'新闻摘要', detail:'新闻正文'}};
+    -var defaultNews={id:'', images:[],title:'新闻标题',content:{brief:'新闻摘要', detail:'新闻正文'}, url:'/posts'};
     .row
         -var i=0, news;
         -while(i<3)
@@ -19,7 +19,7 @@ mixin news(posts)
                             =news.title
                             i.material-icons.right more_vert
                         p
-                            a(href='/post/'+news.id) 详情
+                            a(target="_blank", href=news.url) 详情
                     .card-reveal
                         span.card-title.grey-text.text-darken-4
                             =news.title
