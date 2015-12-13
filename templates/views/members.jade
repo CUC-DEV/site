@@ -12,19 +12,34 @@ block slogan
     h2
         | Texts, images, videos, we processe everthing.
 block content
-    - var member = {};
-    - member.image = '/images/avatars/avatar-f-2.png';
-    - member.title = '姓名';
-    - member.content = '简单介绍,简单介绍,简单介绍简单介绍,简单介绍,简单介绍简单介绍,简单介绍,简单介绍';
     .row.neo-members
         .col.l12
-            +circle([member, member, member], '教师',['neo-member-teacher', 'effect7','left_to_right'])
-        -member.image = '/images/avatars/avatar-m-2.png'
+            +circle(teachers, '教师',['neo-member-teacher', 'effect13'])
+        
         .col.l12
-            +circle([member, member, member, member, member], '在读', ['neo-member-student','effect9'])
-        -member.image = '/images/avatars/avatar-f-1.png'
+            +circle(students, '在读', ['neo-member-student','effect13'])
+        
         .col.l12
-            +circle([member, member, member, member], '毕业', ['neo-member-graduated','effect13'])
+            +circle(graduated, '毕业', ['neo-member-graduated','effect13'])
 block modal
     +modal('memberModal')
-    
+block js
+     script(type='text/javascript').
+        $(document).ready(function(){
+                    $('a.neo-member').click(function () {
+                        //从元素返回数据
+                        var id=$(this).data('member');
+                        //从数据库中获取数据并给回调函数处理
+                        $.getJSON('/ajax/member/'+id,function(res){
+                            if(res.status == 'ok'){
+                                var data = res.data;
+                                var memberDiv=$('#memberModal');
+                                memberDiv.find('div#bio').html(data.bio.html);
+                                memberDiv.find('a.modal-action#weibo').attr("href",data.weibo);	
+                                memberDiv.find('a.modal-action#website').attr("href",data.website);	
+                                
+                            }
+                        });
+                    });
+        });
+        
