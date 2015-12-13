@@ -30,12 +30,14 @@ var routes = {
  
 // 绑定路由
 exports = module.exports = function(app) {
+    app.use(routes.views.skeleton);
     app.get('/', routes.views.home);
-
-    app.get('/posts', [routes.views.posts.info, routes.views.posts.index]);
-    app.get('/posts/:id', [routes.views.posts.info, routes.views.posts.post]);
-    app.get('/posts/categories/:id', [routes.views.posts.info, routes.views.posts.category]);
-    app.get('/posts/year/:year', [routes.views.posts.info, routes.views.posts.year]);
+    app.get('/home', routes.views.home);
+    app.use('/posts',routes.views.posts.info);
+    app.get('/posts', routes.views.posts.index);
+    app.get('/posts/:id', routes.views.posts.post);
+    app.get('/posts/categories/:id', routes.views.posts.category);
+    app.get('/posts/year/:year', routes.views.posts.year);
     //app.get('/researches', routes.views.researches);
     //app.get('/researches/detail/:id', routes.views.researchdetail);
     //app.get('/researches/:item/:name', routes.views.researchcategory);

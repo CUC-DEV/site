@@ -20,39 +20,6 @@ exports = module.exports = function(req, res) {
 		});
 		
 	});
-	
-	    // Load lab intro
-	view.on('init', function(next) {
-		
-		keystone.list('TextData').model.findOne({technicalKey:"home-intro"}).where('state', 'published').exec(function(err, intro) {
-			
-			if (err || !intro) {
-				console.log("can't find 实验室简介 error ");
-				return next(err);
-			}
-
-            locals.intro = intro;
-			next();
-		});
-		
-	});
-	
-	// Load slogan
-	view.on('init', function(next) {
-		
-		keystone.list('TextData').model.findOne({technicalKey:"home-slogan"}).where('state', 'published').exec(function(err, slogan) {
-			
-			if (err || !slogan) {
-				console.log("can't find home slogan ");
-				return next(err);
-			}
-
-            locals.slogan = slogan
-			next();
-		});
-		
-	});
-    
     
     view.render('home');
     
