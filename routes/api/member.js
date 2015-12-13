@@ -4,7 +4,6 @@ var Member = keystone.list('Member');
 
 exports = module.exports = function (req, res) {
 	var id = req.params.id;
-	console.log('member id:'+id);
 	Member.model.findOne({_id: id}).exec(function (err, member) {
 		if (err || !member){
 			console.log('err when ajax member with id ' + id);

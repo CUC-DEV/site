@@ -45,7 +45,7 @@ exports = module.exports = function(app) {
     app.get('/resources', routes.views.resources);
     app.get('/activities', routes.views.activities);
     //app.get('/contact', routes.views.contact);
-    app.get('/ajax/category/:name', routes.api.postCategory);
-    app.get('/ajax/member/:id', routes.api.member);
+    app.get('/api/category/:name', routes.api.postCategory);
+    app.get('/api/member/:id', routes.api.member);
 
 }

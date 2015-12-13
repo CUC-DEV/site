@@ -12,7 +12,7 @@ var Post = new keystone.List('Post', {
     label: '新闻',
     map:{name:'title'}
 });
-//todo: when publish save pushlish date
+
 Post.add({
 	title: { type: String, required: true, initial:true},
 	rank: { type: Number, default: 0 },

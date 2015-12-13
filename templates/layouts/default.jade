@@ -1,48 +1,47 @@
 include ../mixins/introduction
 doctype html
 html
+    //- HTML HEAD
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+        link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        //link(rel="shortcut icon", href="/images/logo/imc.gif", type="image/x-icon")
+        link(href="/lib/Materialize/dist/css/materialize.css", rel="stylesheet")
+        link(rel='stylesheet', type='text/css', href='/lib/textillate/animate.min.css')
+        link(href="/styles/default.css", rel="stylesheet")
+        link(rel='stylesheet', type='text/css', href='/styles/' + page.name + '.css')
 
-	//- HTML HEAD
-	head
-		meta(charset="utf-8")
-		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
-		link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-		//link(rel="shortcut icon", href="/images/logo/imc.gif", type="image/x-icon")
-		link(href="/lib/Materialize/dist/css/materialize.css", rel="stylesheet")
-		link(rel='stylesheet', type='text/css', href='/lib/textillate/animate.min.css')
-		link(href="/styles/default.css", rel="stylesheet")
+        block css
+        block head
 
-		block css
-		block head
+    body
+        //- SITE HEADER
+        include ../includes/header
+        //- SITE BODY
+        block body
+            main.site-body(role='main')
+                .neo-intro
+                    +introduction(intro.content.brief, intro.content.detail)
+                .row.neo-slogan.neo-slogan-blue
+                    !{slogan.content.detail}
+                .neo-content
+                    block content
+                        block intro
 
-	//- HTML BODY
-	body
-		//- SITE HEADER
-		include ../includes/header
-		//- SITE BODY
-		block body
-			main.site-body(role='main')
-				.neo-intro
-					+introduction(intro.content.brief, intro.content.detail)
-				.row.neo-slogan.neo-slogan-blue
-					!{slogan.content.detail}
-				.neo-content
-					block content
-						block intro
+        block modal
+        //- SITE HEADER
+        include ../includes/footer
 
-		block modal
-		//- SITE HEADER
-		include ../includes/footer
-
-	script(src='/js/lib/jquery/jquery-1.10.2.min.js')
-	script(src='/lib/Materialize/dist/js/materialize.js')
-	script(type='text/javascript', src='/lib/textillate/jquery.fittext.js')
-	script(type='text/javascript', src='/lib/textillate/jquery.lettering.js')
-	script(type='text/javascript', src='/lib/textillate/jquery.textillate.js')
-	script(type='text/javascript').
-		$(function() {
-			$('.jumbotron .neo-intro-title').fitText(2.0).textillate({ in: { effect: 'flipInY' }});
-			$('.jumbotron .neo-intro-text').fitText(3.2, { maxFontSize: 18 }).textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
-			$('.modal-trigger').leanModal();
-		});
-	block js
+    script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+    script(src='/lib/Materialize/dist/js/materialize.js')
+    script(type='text/javascript', src='/lib/textillate/jquery.fittext.js')
+    script(type='text/javascript', src='/lib/textillate/jquery.lettering.js')
+    script(type='text/javascript', src='/lib/textillate/jquery.textillate.js')
+    script(type='text/javascript').
+        $(function() {
+            $('.jumbotron .neo-intro-title').fitText(2.0).textillate({ in: { effect: 'flipInY' }});
+            $('.jumbotron .neo-intro-text').fitText(3.2, { maxFontSize: 18 }).textillate({ initialDelay: 1000, in: { delay: 3, shuffle: true } });
+            $('.modal-trigger').leanModal();
+        });
+    block js
