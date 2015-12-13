@@ -16,23 +16,23 @@ exports = module.exports = function(req, res, next) {
         locals.recent = values[1];
         locals.intro = values[2];
         locals.slogan = values[3];
-        next()
+
+        // can't load archived posts by year with promise
+        keystone.list('Post').model.aggregate([
+            {$match:{state:"published", publishedAt:{$exists:true}}},
+            {$project: { year : { $dateToString: { format: "%Y", date: "$publishedAt" }}}},
+            { $group: { _id: '$year' , total: { $sum: 1 }}},
+            { $project:{name: '$_id', total:'$total', url: { $concat: [ '/posts/year/', '$_id']}}},
+            { $sort: { name: -1 } }], function(err, results){
+
+            if(err){
+                console.log("cant't aggregate post");
+                return next(err);
+            }
+
+            locals.archives = results;
+            next()
+        });
+
     });
-
-	// can't load archived posts by year with promise
-    /*
-	var archivePromise = keystone.list('Post').model.aggregate([
-			{$match:{state:"published", publishDate:{$exists:true}}},
-			{ $group: { _id: { $year: "$publishDate" }, total: { $sum: 1 } } },
-			{ $sort: { total: -1 }  }], function(err, results){
-				if(err){
-					console.log("cant't aggregate post");
-					return next(err);
-				}
-
-				console.log('archive'+results[0]);
-				locals.archives = results;
-			});
-
-    */
 };

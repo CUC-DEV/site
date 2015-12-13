@@ -7,7 +7,7 @@ block content
     .row
         .col.s12.m12.l2#postsMenu
             - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
-            - var archiveItem = {name:'归档', icon:'today', subitems: []};
+            - var archiveItem = {name:'归档', icon:'today', subitems: archives};
             - var recentItem = {name:'最新', icon:'whatshot', subitems: recent};
             +posts_sidemenu([recentItem, archiveItem, categoryItem])
         .col.s12.m12.l10
