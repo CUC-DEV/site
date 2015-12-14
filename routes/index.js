@@ -38,7 +38,8 @@ exports = module.exports = function(app) {
     app.get('/posts/:id', routes.views.posts.post);
     app.get('/posts/categories/:id', routes.views.posts.category);
     app.get('/posts/year/:year', routes.views.posts.year);
-    //app.get('/researches', routes.views.researches);
+    app.get('/researches', routes.views.researches.info);
+    app.get('/researches', routes.views.researches.index);
     //app.get('/researches/detail/:id', routes.views.researchdetail);
     //app.get('/researches/:item/:name', routes.views.researchcategory);
     app.get('/members', routes.views.members);
