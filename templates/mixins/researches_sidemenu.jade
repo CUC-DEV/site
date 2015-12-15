@@ -1,0 +1,11 @@
+mixin researches_sidemenu(items)
+	ul.collapsible(data-collapsible='accordion').popout
+		each item in items
+			li
+				.collapsible-header
+					i.material-icons=item.icon
+					=item.name
+				.collapsible-body
+					.collection
+						each subitem in item.subitems
+							a.collection-item(href=subitem.url)=subitem.name

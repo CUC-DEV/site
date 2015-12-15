@@ -1,22 +1,10 @@
 extends ../layouts/default
-// include ../mixins/sidemenu
-// include ../mixins/card
-// include ../mixins/pagination
-// block content
-//     .row
-//         .col.s12.m12.l2#postsMenu
-//             - var categorie = {name:'类别', icon:'toc', id:'researchCategory'};
-//             - categorie.subdirectory=categories;
-//             - var archive = {name:'归档', icon:'today', id:'researchArchive'};
-//             - archive.subdirectory=states;          
-//             - var date = {name:'时间', icon:'whatshot', id:'researchDate'};
-//             - date.subdirectory=archives;          
-//             +sidemenu([categorie,archive,date])
-//             //p=archives[0].total        
-//         .col.s12.m12.l10
-//             +card(researches)
-//         .row.right
-//             +pagination(null,null,postStyles)
-
-// block js
-//      script(type='text/javascript', src='/js/researches.js')
+include ../mixins/researches_sidemenu
+include ../mixins/card
+block content
+    .row
+        .col.s12.m12.l2#postsMenu
+            - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
+            - var archiveItem = {name:'归档', icon:'today', subitems: archives};
+            - var stateItem = {name:'状态', icon:'whatshot', subitems: states};
+            +researches_sidemenu([categoryItem,stateItem,archiveItem])

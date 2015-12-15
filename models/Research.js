@@ -23,7 +23,7 @@ Research.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	responsable: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
-	year: { type: Number },
+	year: { type: String },
 	video: {
 		type: Types.LocalFile,
 		dest: data_path + '/research',
