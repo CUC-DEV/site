@@ -4,12 +4,10 @@ include ../mixins/card
 block content
     .row
         .col.s12.m12.l2#postsMenu
-            // - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
-            // - var archiveItem = {name:'归档', icon:'today', subitems: archives};
-            // - var stateItem = {name:'状态', icon:'whatshot', subitems: states};
-            // +researches_sidemenu([categoryItem,archiveItem,stateItem])
-            // p=categories[0].name
-            // p test;            
+            - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
+            - var archiveItem = {name:'归档', icon:'today', subitems: archives};
+            - var stateItem = {name:'状态', icon:'whatshot', subitems: progressUrls};
+            +researches_sidemenu([categoryItem,archiveItem,stateItem])
 
         .col.s12.m12.l10
             +card(researches)

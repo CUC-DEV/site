@@ -10,7 +10,7 @@ mixin news(posts)
             .col.s12.m12.l4
                 .card.z-depth-4
                     .card-image
-                        if news.images.length > 0
+                        if news.images && news.images.length > 0
                             img.activator(src=imgPrefix + news.images[0].image.filename)
                         else
                             img.activator(src='images/home/cuc-0.jpg')

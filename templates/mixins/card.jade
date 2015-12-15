@@ -7,7 +7,10 @@ mixin card(cards)
 				.col.s12.m12.l4
 					.card.z-depth-4.neo-research
 						.card-image.waves-effect.waves-block.waves-light
-							//img.activator(src=imgPrefix+ cards[i].images[0].image.filename)
+							if cards[i].images && cards[i].images.length > 0
+								img.activator(src=imgPrefix + cards[i].images[0].image.filename)
+							else
+								img.activator(src='images/home/cuc-0.jpg')
 						.card-content
 							span.card-title.activator.grey-text.text-darken-4=cards[i].title
 								i.material-icons.right more_vert
