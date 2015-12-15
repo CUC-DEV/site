@@ -7,6 +7,7 @@ block content
             - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
             - var archiveItem = {name:'归档', icon:'today', subitems: archives};
             - var recentItem = {name:'最新', icon:'whatshot', subitems: recent};
+            p=categories[0].name
             +posts_sidemenu([recentItem, archiveItem, categoryItem])
         .col.s12.m12.l10
             -var postStyles=['post']

@@ -42,6 +42,18 @@ Research.add({
 	categories: { type: Types.Relationship, ref: 'ResearchCategory', many: true }
 });
 
+/**
+ * Virtuals
+ * ========
+ */
+
+Research.schema.virtual('url').get(function() {
+	return "/researches/"+this.id;
+});
+
+Research.schema.virtual('name').get(function() {
+    return this.title;
+});
 
 /**
  * Registration

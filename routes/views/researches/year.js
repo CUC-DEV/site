@@ -4,20 +4,16 @@ exports = module.exports = function(req, res) {
 
 	var view = new keystone.View(req, res),
 			locals = res.locals,
-			id=req.params.id;
+			year = req.params.year;
 
     view.on('init', function(next) {
-        locals.researches = [];
-        keystone.list('Research').model.findOne({_id: id}).exec(function(err, research) {
+        keystone.list('Research').model.find({year:year}).populate('images').sort('rank').exec(function(err, researches) {
             if (err) {
                 console.log("not find news ");
                 return next(err);
             }
 
-            if(research){
-                locals.researches.push(research)
-            }
-
+            locals.researches=researches;
             next();
         });
 
