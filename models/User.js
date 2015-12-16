@@ -14,10 +14,10 @@ var User = new keystone.List('User', {
 });
 
 User.add({
-	name: { type: Types.Name, required: true, index: true },
+	name: { type: Types.Name, required: true, index: true ,label:'姓名'},
 	email: { type: Types.Email, initial: true, index: true },
-	password: { type: Types.Password, initial: true },
-	isAdmin: { type: Boolean, label: 'Can Admin SydJS' }
+	password: { type: Types.Password, initial: true,label:"密码" },
+	isAdmin: { type: Boolean, label: '是否为管理员身份' }
 });
 
 

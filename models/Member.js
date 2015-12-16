@@ -8,21 +8,22 @@ var Types = keystone.Field.Types;
 
 var Member = new keystone.List('Member', {
 	track: true,
-	autokey: { path: 'key', from: 'name', unique: true }
+	autokey: { path: 'key', from: 'name', unique: true },
+	label:"成员"
 });
 
 Member.add({
-	name: { type: Types.Name, required: true, index: true },
+	name: { type: Types.Name, required: true, index: true ,label:"姓名"},
 	email: { type: Types.Email, initial: true, index: true },
 }, 'Profile', {
-    photo: { type: Types.Relationship, ref: 'Image', many: false },
-		weibo: { type: String, width: 'short' },
-		website: { type: Types.Url },
-		bio: { type: Types.Markdown },
-		type: {type: Types.Select, options: 'student, teacher', default: 'student'},
-		graduatedDate: { type: Types.Date },
-		dessciption:  { type: Types.Textarea },
-		Achievements: { type: Types.Relationship, ref: 'Achievement', many: true }
+    photo: { type: Types.Relationship, ref: 'Image', many: false ,label:"照片"},
+		weibo: { type: String, width: 'short',label:"微博"},
+		website: { type: Types.Url,label:"个人网站" },
+		bio: { type: Types.Markdown,label:"个人简历" },
+		type: {type: Types.Select, options: 'student, teacher', default: 'student',label:"身份"},
+		graduatedDate: { type: Types.Date ,label:"毕业时间"},
+		desciption:  { type: Types.Textarea ,label:"个人描述"},
+		Achievements: { type: Types.Relationship, ref: 'Achievement', many: true ,label:"获奖情况"}
 	});
 
 

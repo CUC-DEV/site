@@ -14,17 +14,19 @@ var Types = keystone.Field.Types;
 var Research = new keystone.List('Research', {
 	map: { name: 'title' },
 	track: true,
-	autokey: { path: 'key', from: 'title', unique: true }
+	autokey: { path: 'key', from: 'title', unique: true },
+	label:'研究成果'
 });
 
 Research.add({
-	title: { type: String, required: true },
-	rank: { type: Number, default: 0 },
+	title: { type: String, required: true ,label:"题目"},
+	rank: { type: Number, default: 0 ,label:"优先级"},
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true, label:"状态" },
 	progress:{type: Types.Select, options: 'to_do, doing, done', default: 'to_do', index: true, label:"进度"},
-	leader: { type: Types.Relationship, ref: 'Member', index: true, many:false },
-    authors: {type: Types.Relationship, ref: 'Member', index: true, many:true },
-    publishedAt: { type: Types.Date, index: true },
+	progressbar:{type: String, required: true,default:'0%',label:"完成度"},	
+	leader: { type: Types.Relationship, ref: 'Member', index: true, many:false,label:"组长" },
+    authors: {type: Types.Relationship, ref: 'Member', index: true, many:true,label:"小组成员"},
+    publishedAt: { type: Types.Date, index: true ,label:"发布时间"},
 	begin: Date,
     end: Date,
 	video: {
@@ -34,15 +36,14 @@ Research.add({
 		filename: function (item, file) {
 			return item.id + '.' + file.extension
 		}
-	},
-	images: { type: Types.Relationship, ref: 'Image', many: true },
+	,label:"视频"},
+	images: { type: Types.Relationship, ref: 'Image', many: true,label:"图像"},
 	content: {
-		brief: { type: Types.Markdown, wysiwyg: true, height: 150 },
-		main: { type: Types.Markdown, wysiwyg: true, height: 400 }
+		brief: { type: Types.Markdown, wysiwyg: true, height: 150 ,label:"简述"},
+		main: { type: Types.Markdown, wysiwyg: true, height: 400,label:"详情" }
 	},
-	process:{type: String, required: true,default:'0%'},
-	demo: { type: Types.Url },
-	categories: { type: Types.Relationship, ref: 'ResearchCategory', many: true }
+	demo: { type: Types.Url,label:"示例"},
+	categories: { type: Types.Relationship, ref: 'ResearchCategory', many: true ,label:"所属类别"}
 });
 
 /**

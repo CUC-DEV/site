@@ -9,7 +9,8 @@ var Types = keystone.Field.Types;
 var TextData = new keystone.List('TextData', {
 	track: true,
 	defaultSort: '-createdAt',
-    map: { name: 'title' }
+    map: { name: 'title' },
+	label:"文本信息"
 });
 
 TextData.add({

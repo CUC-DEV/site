@@ -13,8 +13,8 @@ var ResearchCategory = new keystone.List('ResearchCategory', {
 });
 
 ResearchCategory.add({
-	key: { type: String, required: true, initial:true },
-	name: {type: String, required: true, initial:true}
+	key: { type: String, required: true, initial:true,label:"类别英文名称"},
+	name: {type: String, required: true, initial:true,label:"类别中文名称"}
 });
 
 

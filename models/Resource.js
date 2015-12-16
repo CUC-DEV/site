@@ -10,7 +10,8 @@ var Types = keystone.Field.Types;
 var Resource = new keystone.List('Resource', {
 	map: { name: 'title' },
 	track: true,
-	autokey: { path: 'key', from: 'title', unique: true }
+	autokey: { path: 'key', from: 'title', unique: true },
+	label:"资源"
 });
 
 Resource.add({
