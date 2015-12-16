@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
         locals.researches = [];
-        keystone.list('Research').model.findOne({_id: id}).exec(function(err, research) {
+        keystone.list('Research').model.findOne({_id: id}).populate('images').populate('members').exec(function(err, research) {
             if (err) {
                 console.log("not find news ");
                 return next(err);
@@ -23,6 +23,6 @@ exports = module.exports = function(req, res) {
 
     });
 
-	view.render('researches');
+	view.render('researchdetail');
 
 };

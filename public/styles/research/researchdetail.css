@@ -1,18 +1,29 @@
 .bbox{
 	  border: 1px solid #DFDFDF;
 	  border-radius: 5px;
-	  margin-bottom:30px;
+	  margin-top:1%;
+	  margin-right:1%;	  
 	  padding: 50px;
 	  text-align: center;
 }
-.cbox{
-	  margin-bottom: 30px;
-	  color: #FFF;
-	  padding: 50px;
-	}
 h2{
 	text-align: center;
 }
-.orange{
-	  background: orange;
-	}
+.backgroundbox{
+	background:rgba(255,255,255,0.5);
+}
+h5{
+	text-align : left;
+}
+.button1{
+	text-align: center;
+	margin-top:20px;
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.button2{
+	text-align: center;
+	margin-top:10px;
+	margin-bottom:100px;	
+	margin-right:10px;
+}

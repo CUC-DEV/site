@@ -1,37 +1,42 @@
 extends ../layouts/default
 include ../mixins/researchslider
 include ../mixins/card
-include ../mixins/sidemenu
+include ../mixins/researches_sidemenu
 block css
     link(rel='stylesheet', type='text/css', href='/styles/research/researchdetail.css')
 block content
     .row
         .col.s12.m12.l2#postsMenu
-            - var categorie = {name:'类别', icon:'toc', id:'researchCategory'};
-            - categorie.subdirectory=categories;
-            - var archive = {name:'归档', icon:'today', id:'researchArchive'};
-            - archive.subdirectory=[{name:'draft',name_c:'计划'},{name:'archived',name_c:'进行'},{name:'published',name_c:'完成'}];            
-            - var date = {name:'时间', icon:'whatshot', id:'researchDate'};
-            - date.subdirectory=archives;          
-            +sidemenu([categorie,archive,date])
-        .col.s12.m12.l10.bbox
+            - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
+            - var archiveItem = {name:'归档', icon:'today', subitems: archives};
+            - var stateItem = {name:'状态', icon:'whatshot', subitems: progressUrls};
+            +researches_sidemenu([categoryItem,archiveItem,stateItem])
+        .col.s12.m12.l9.backgroundbox
             .col.s12.l10.offset-l1.bbox
                 h1 #{researches[0].title}
             .col.s12.l5.offset-l1.bbox
                 +researchslider(researches)
             .col.s12.l5.bbox
-                h4 简介            
-                h5 
+                h5 简介            
+                h6 
                   |!{researches[0].content.brief.html}
             .col.s12.l10.offset-l1.bbox
-                h4 主要内容                        
+                h5 主要内容                        
                 h6 
                   |!{researches[0].content.main.html}
             .col.s12.l10.offset-l1.bbox
-                h4 研究进度
+                h5 研究组人员                        
+                h5 负责人:
+                p #{researches[0].leader.name}
+                h5 组员:
+            .col.s12.l10.offset-l1.bbox
+                h5 研究进度
                  .progress
-                    .determinate(style='width: #{researches[0].process}')            
-               
+                    .determinate(style='width: #{researches[0].progressbar}') 
+            .col.s12.l2.offset-l9
+                 if researches[0].demo.length > 0
+                    a.btn.btn-default.button1(href=researches[0].demo, role='button') 在线演示    
+                 a.btn.btn-default.button2(href=researches[0].demo, role='button',onclick='javascript:history.go(-1);') 返回   
 
 block js
      script(type='text/javascript', src='/js/researches.js')
