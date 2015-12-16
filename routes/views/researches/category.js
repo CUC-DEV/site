@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
 			id=req.params.id;
 
     view.on('init', function(next) {
-        keystone.list('Research').model.find({categories: id}).exec(function(err, researches) {
+        keystone.list('Research').model.find({categories: id}).populate('images').exec(function(err, researches) {
             if (err) {
                 console.log("not find researches ");
                 return next(err);
