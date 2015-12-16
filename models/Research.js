@@ -20,10 +20,13 @@ var Research = new keystone.List('Research', {
 Research.add({
 	title: { type: String, required: true },
 	rank: { type: Number, default: 0 },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	responsable: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true },
-	year: { type: String },
+	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true, label:"状态" },
+	progress:{type: Types.Select, options: 'to_do, doing, done', default: 'to_do', index: true, label:"进度"},
+	leader: { type: Types.Relationship, ref: 'Member', index: true, many:false },
+    authors: {type: Types.Relationship, ref: 'Member', index: true, many:true },
+    publishedAt: { type: Types.Date, index: true },
+	begin: Date,
+    end: Date,
 	video: {
 		type: Types.LocalFile,
 		dest: data_path + '/research',
@@ -53,6 +56,25 @@ Research.schema.virtual('url').get(function() {
 
 Research.schema.virtual('name').get(function() {
     return this.title;
+});
+
+
+/**
+ * Middleware
+ * ========
+ */
+
+
+Research.schema.pre('save', function(next) {
+    if(this.state === 'published'){
+        if(!this.publishedAt)
+        {
+            this.publishedAt = Date.now();
+        }
+    }else{
+        this.publishedAt = null;
+    }
+    next();
 });
 
 /**
