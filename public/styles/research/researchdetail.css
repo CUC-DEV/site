@@ -8,12 +8,21 @@
 }
 h2{
 	text-align: center;
+	font-family:SimSun,"Times New Roman";
+	color:rgba(0,0,0,0.8);
+}
+h1{
+	text-align: center;
+	font-family:SimSun,"Times New Roman";
+	color:rgba(0,0,0,0.7);
 }
 .backgroundbox{
 	background:rgba(255,255,255,0.5);
 }
 h5{
 	text-align : left;
+	font-family:SimSun,"Times New Roman";
+	color:rgba(0,0,0,0.8);
 }
 .button1{
 	text-align: center;
@@ -26,4 +35,15 @@ h5{
 	margin-top:10px;
 	margin-bottom:100px;	
 	margin-right:10px;
+}
+.namebutton{
+	background:rgba(0,117,0,0.5);
+	margin-right:10px;
+}
+p{
+	font-family:SimSun,"Times New Roman";
+	color:rgba(0,0,0,0.8);
+	font-size:120%;
+	text-align : left;
+
 }

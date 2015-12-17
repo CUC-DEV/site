@@ -18,24 +18,37 @@ block content
                 +researchslider(researches)
             .col.s12.l5.bbox
                 h5 简介            
-                h6 
+                p 
                   |!{researches[0].content.brief.html}
             .col.s12.l10.offset-l1.bbox
                 h5 主要内容                        
-                h6 
+                p 
                   |!{researches[0].content.main.html}
             .col.s12.l10.offset-l1.bbox
                 h5 研究组人员                        
-                h5 负责人:
-                p #{researches[0].leader.name}
-                h5 组员:
+                p 负责人:
+                p
+                  if leader[0].leader
+                    if leader[0].leader.website
+                       a.btn.namebutton(target="_blank",href=leader[0].leader.website,role='button') #{leader[0].leader.name.first}#{leader[0].leader.name.last}
+                    else
+                       |#{leader[0].leader.name.first}#{leader[0].leader.name.last}
+                p 组员:
+                p
+                  if authors[0].authors
+                    each author in authors[0].authors
+                       if author.website
+                          a.btn.namebutton(target="_blank",href=leader[0].leader.website,role='button') #{author.name.first}#{author.name.last}
+                       else
+                          |#{author.name.first}#{author.name.last},
+
             .col.s12.l10.offset-l1.bbox
                 h5 研究进度
                  .progress
                     .determinate(style='width: #{researches[0].progressbar}') 
             .col.s12.l2.offset-l9
                  if researches[0].demo.length > 0
-                    a.btn.btn-default.button1(href=researches[0].demo, role='button') 在线演示    
+                    a.btn.btn-default.button1(target="_blank",href=researches[0].demo, role='button') 在线演示    
                  a.btn.btn-default.button2(href=researches[0].demo, role='button',onclick='javascript:history.go(-1);') 返回   
 
 block js
