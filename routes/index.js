@@ -52,5 +52,6 @@ exports = module.exports = function(app) {
     //app.get('/contact', routes.views.contact);
     app.get('/api/category/:name', routes.api.postCategory);
     app.get('/api/member/:id', routes.api.member);
+    app.get('/paper',routes.views.paper);
 
 }

@@ -1,0 +1,6 @@
+mixin paper(papers)
+    if papers & papers.length
+	    each paper in papers
+		    .row
+			    p
+				    a(href='#')=paper.title
