@@ -10,7 +10,7 @@ exports = module.exports = function (done) {
         isAdmin: true
     }).save();
 
-    var pages = ['home', 'posts', 'researches', 'members', 'resources'];
+    var pages = ['home', 'posts', 'researches', 'paper','members', 'resources'];
 
     pages.forEach(function(page){
             new TextData.model({
