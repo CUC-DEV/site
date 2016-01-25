@@ -11,7 +11,7 @@ mixin news(posts)
                 .card.z-depth-4
                     .card-image
                         if news.images.length > 0
-                            img.activator(src=imgPrefix + news.images[0].image.filename)
+                            img.activator(src=news.images[0]._.image.fit(300,300))
                         else
                             img.activator(src='images/home/cuc-0.jpg')
                     .card-content

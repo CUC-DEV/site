@@ -1,6 +1,6 @@
 // Load .env for development environments
 require('dotenv').load();
-var data_path = process.env.DATA_PATH
+var profile = process.env.PROFILE || 'dev';
 
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
@@ -22,12 +22,9 @@ Image.add({
 	type: { type: Types.Select, options: 'post, reseach, member, resource, avtivity', default: 'post', index: true },
 	brief: { type: Types.Text, wysiwyg: true, height: 150 },
 	image: {
-		type: Types.LocalFile,
-		dest: data_path + '/img',
-		prefix: '/img/',
-		format: function(item, file){
-			return '<img src="/img/'+file.filename+'" style="max-width: 300px">'
-		}
+		type: Types.CloudinaryImage,
+        autoCleanup : true,
+        folder: profile,
 	}
 });
 

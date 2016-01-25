@@ -1,5 +1,5 @@
-// Load .env for development environments
-require('dotenv').load();
+var dotenv = require('dotenv').load()
+
 var keystone = require('keystone');
 var pkg = require('./package.json');
 keystone.init({
@@ -7,12 +7,12 @@ keystone.init({
     'brand': 'imc后台',
     'favicon': 'public/favicon.ico',
     'less': 'public',
-    'static': ['public', process.env.DATA_PATH],
+    'static': ['public'],
 
     'views': 'templates/views',
     'view engine': 'jade',
     'auto update': true,
-    'mongo': process.env.MONGO_URI || 'mongodb://localhost/lab-dev',
+    'mongo': process.env.MONGO_URI+process.env.PROFILE+"-dev" || 'mongodb://localhost/lab-dev',
     'session': true,
     'auth': true,
     'user model': 'User',
@@ -21,6 +21,8 @@ keystone.init({
 });
  
 keystone.import('models');
+
+keystone.set('cloudinary folders', true);
 
 keystone.set('nav', {
     '用户': 'users',
