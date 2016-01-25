@@ -12,7 +12,7 @@ mixin circle(members, tag, memberStyle)
 						a.modal-trigger.neo-member(href='#memberModal',data-member=members[i].id)
 							.spinner
 							.img
-								img(src=imgPrefix+members[i].photo.image.filename)
+								img(src=members[i].photo._.image.src())
 							.info
 								.info-back
 									h3=members[i].name.first+members[i].name.last

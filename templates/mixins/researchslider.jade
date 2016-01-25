@@ -3,7 +3,7 @@ mixin researchslider(researches)
         ul.slides
              each picture in researches[0].images
                   li
-                    img(src=imgPrefix+picture.image.filename)
+                    img(src=picture._.image.src())
                     .caption.center-align
                        h3 #{picture.title}
                        h5.light.grey-text.text-lighten-3 #{picture.title}              

@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
         locals.posts = [];
-        keystone.list('Post').model.findOne({_id: id, state : 'published'}).exec(function(err, post) {
+        keystone.list('Post').model.findOne({_id: id, state : 'published'}).populate('images').exec(function(err, post) {
             if (err) {
                 console.log("not find news ");
                 return next(err);
