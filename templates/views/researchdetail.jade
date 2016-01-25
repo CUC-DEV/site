@@ -61,27 +61,21 @@ block js
      script(type='text/javascript', src='/js/researches.js')
      script(type='text/javascript').
             $(document).ready(function(){
-            $('.slider').slider({full_width: true});
+                $('.slider').slider({full_width: true});
+                
+                $("#back-to-top").hide();
+                $(window).scroll(function(){
+                    if ($(window).scrollTop()>1000){
+                        $("#back-to-top").fadeIn(150);
+                    }
+                    else
+                    {
+                        $("#back-to-top").fadeOut(150);
+                    }
+                });
+                //当点击跳转链接后，回到页面顶部位置
+                $("#back-to-top").click(function(){
+                    $('body,html').animate({scrollTop:0},300);
+                    return false;
+                });
             });
-    script(src='http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.min.js')
-    script.
-            $(function(){
-            //当滚动条的位置处于距顶部700像素以下时，跳转链接出现，否则消失
-            $(function () {
-            $(window).scroll(function(){
-            if ($(window).scrollTop()>700){
-            $("#back-to-top").fadeIn(150);
-            }
-            else
-            {
-            $("#back-to-top").fadeOut(150);
-            }
-            });
-            //当点击跳转链接后，回到页面顶部位置
-            $("#back-to-top").click(function(){
-            $('body,html').animate({scrollTop:0},6000);
-            return false;
-            });
-            });
-            });
-        
