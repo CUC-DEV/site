@@ -11,6 +11,11 @@ block content
             - var archiveItem = {name:'归档', icon:'today', subitems: archives};
             - var stateItem = {name:'状态', icon:'whatshot', subitems: progressUrls};
             +researches_sidemenu([categoryItem,archiveItem,stateItem])
+        .col.s12.m12.l1.offset-l1              
+            p#back-to-top
+              a(href='#top')
+                 span
+                // | 返回顶部 
         .col.s12.m12.l9.backgroundbox
             .col.s12.l10.offset-l1.bbox
                 h1 #{researches[0].title}
@@ -51,10 +56,32 @@ block content
                     a.btn.btn-default.button1(target="_blank",href=researches[0].demo, role='button') 在线演示    
                  a.btn.btn-default.button2(href=researches[0].demo, role='button',onclick='javascript:history.go(-1);') 返回   
 
+
 block js
      script(type='text/javascript', src='/js/researches.js')
      script(type='text/javascript').
             $(document).ready(function(){
             $('.slider').slider({full_width: true});
+            });
+    script(src='http://ajax.microsoft.com/ajax/jQuery/jquery-1.7.2.min.js')
+    script.
+            $(function(){
+            //当滚动条的位置处于距顶部700像素以下时，跳转链接出现，否则消失
+            $(function () {
+            $(window).scroll(function(){
+            if ($(window).scrollTop()>700){
+            $("#back-to-top").fadeIn(150);
+            }
+            else
+            {
+            $("#back-to-top").fadeOut(150);
+            }
+            });
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function(){
+            $('body,html').animate({scrollTop:0},6000);
+            return false;
+            });
+            });
             });
         

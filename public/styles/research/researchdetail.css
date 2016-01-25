@@ -47,3 +47,28 @@ p{
 	text-align : left;
 
 }
+
+p#back-to-top{   
+    background:#d1d1d1 url(/images/logo/arrow.png) no-repeat center center ;    
+    position:fixed;
+    height:40px;      
+    width:40px;       
+    bottom:60px;      
+    right:40px;
+}
+p#back-to-top a{      
+    text-align:center;      
+    text-decoration:none;      
+    color:#d1d1d1;      
+    display:block;      
+    width:50px;          
+}
+p#back-to-top a:hover{      
+    color:#979797;
+}
+p#back-to-top a span{      
+    display:block;      
+    height:60px;      
+    width:60px;      
+}
+
