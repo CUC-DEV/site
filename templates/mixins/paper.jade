@@ -1,6 +1,18 @@
-//mixin paper(papers)
-    if papers & papers.length
-	    each paper in papers
-		    .row
-			    p
-				    a(href='#')=paper.title
+mixin paper(papers)
+    each paper in papers
+        //.row
+           // p=paper.title
+            a(href=paper.url) 详细
+    //else
+        -var post = posts[0]
+        .row
+            .card.z-depth-4(class=postStyles)
+                .card-content
+                    span.card-title=post.title
+                    .spinner
+                        .neo-post-content
+                            | !{post.content.detail}
+                    .card-action
+                        // 添加微博分享
+                        a(href='#') 分享
+
