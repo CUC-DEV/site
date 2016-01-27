@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
 	//load paper
 	view.on('init',function(next){
 		
-		keystone.list('Paper').model.find({}).exec(function(err,results){
+		keystone.list('Paper').model.find({}).sort('-CreatedAt').exec(function(err,results){
 			
 			if(err){
 				console.log("paper not found");
