@@ -8,6 +8,7 @@ mixin paper(papers)
                         .card-action
                             a(target="_blank", href="#") 下载
         .collection
-            each paper in papers
-                a.collection-item(href="#")=paper.title
+            each paper in papers       
+                .collection-item=paper.title
+                  a.secondary-content(href="#").material-icons input
        
