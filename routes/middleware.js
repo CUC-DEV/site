@@ -20,16 +20,26 @@ exports.initLocals = function(req, res, next) {
 		{ label: '课外活动',		key: 'activities',		href: '#' },
 		{ label: '联系我们',		key: 'contact',		href: '#' }
 	];
-	
+
+	var pages = req.url.split('/').filter(function(page){
+		return page;
+	}),
+	pageName = 'home';
+
+	if(pages.length){
+		pageName = pages[0];
+	}
+
+	locals.pageName = pageName;
+
 	locals.user = req.user;
-	
-	locals.imgPrefix = '/img/';
 	
 	locals.basedir = keystone.get('basedir');
 	
 	locals.page = {
 		title: '智能媒体计算实验室',
-		path: req.url.split("?")[0] // strip the query - handy for redirecting back to the page
+		path: req.url.split("?")[0], // strip the query - handy for redirecting back to the page
+		name: pageName
 	};
 	
 	locals.qs_set = qs_set(req, res);

@@ -8,13 +8,23 @@ var Types = keystone.Field.Types;
 
 var PostCategory = new keystone.List('PostCategory', {
 	track: true,
-	autokey: { from: 'name', path: 'key', unique: true }
+	label: '新闻类别',
+    map:{name:'name'}
 });
 
 PostCategory.add({
-	name: { type: String, required: true }
+	key: { type: String, required: true, initial:true,label:"类别英文名称"},
+	name: {type: String, required: true, initial:true,label:"类别中文名称"}
 });
 
+/**
+ * Virtuals
+ * ========
+ */
+
+PostCategory.schema.virtual('url').get(function() {
+	return "/posts/categories/"+this.id;
+});
 
 /**
  * Relationships

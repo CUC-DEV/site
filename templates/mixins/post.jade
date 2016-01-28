@@ -1,13 +1,26 @@
 mixin post(posts, postStyles)
-    -var defaultPost={images:[],title:'新闻标题',content:{brief:'新闻摘要', extended:{html:'<p>新闻正文</p>'}}};
-    if !posts || posts.length == 0
-        -posts = [defaultPost, defaultPost, defaultPost];
-    each post in posts
-        .row
-            .card.z-depth-4(class=postStyles)
-                .card-content
-                    span.card-title=post.title
-                    .neo-post-content
-                        |!{post.content.extended.html}
-                .card-action
-                    a(href='#')分享
+    if posts && posts.length
+        if posts.length > 1
+            each post in posts
+                .row
+                    .card.z-depth-4(class=postStyles)
+                       .card-content
+                           span.card-title=post.title
+                            .spinner
+                                .neo-post-content=post.content.brief
+                            .card-action
+                                a(target="_blank", href=post.url) 详细
+        else
+            -var post = posts[0]
+            .row
+                .card.z-depth-4(class=postStyles)
+                    .card-content
+                        span.card-title=post.title
+                        .spinner
+                            .neo-post-content
+                                img(src=post.images[0]._.image.src())
+                                | !{post.content.detail}
+                        .card-action
+                            // 添加微博分享
+                            a(href='#') 分享
+

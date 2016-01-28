@@ -1,0 +1,63 @@
+extends ../layouts/default
+include ../mixins/researchslider
+include ../mixins/card
+include ../mixins/researches_sidemenu
+block css
+    link(rel='stylesheet', type='text/css', href='/styles/research/researchdetail.css')
+block content
+    .row
+        .col.s12.m12.l2#postsMenu
+            - var categoryItem = {name:'类别', icon:'toc', subitems: categories};
+            - var archiveItem = {name:'归档', icon:'today', subitems: archives};
+            - var stateItem = {name:'状态', icon:'whatshot', subitems: progressUrls};
+            +researches_sidemenu([categoryItem,archiveItem,stateItem])
+        .col.s12.m12.l9.backgroundbox
+            .col.s12.l10.offset-l1.bbox
+                h1 #{researches[0].title}
+            .col.s12.l5.offset-l1.bbox
+                +researchslider(researches)
+            .col.s12.l5.bbox
+                h5 简介            
+                p 
+                  |!{researches[0].content.brief.html}
+            .col.s12.l10.offset-l1.bbox
+                h5 主要内容                        
+                p 
+                  |!{researches[0].content.main.html}
+            .col.s12.l10.offset-l1.bbox
+                h5 研究组人员                        
+                p 负责人:
+                p
+                  if leader[0].leader
+                    if leader[0].leader.website
+                       a.btn.namebutton(target="_blank",href=leader[0].leader.website,role='button') #{leader[0].leader.name.first}#{leader[0].leader.name.last}
+                    else
+                       |#{leader[0].leader.name.first}#{leader[0].leader.name.last}
+                p 组员:
+                p
+                  if authors[0].authors
+                    each author in authors[0].authors
+                       if author.website
+                          a.btn.namebutton(target="_blank",href=leader[0].leader.website,role='button') #{author.name.first}#{author.name.last}
+                       else
+                          |#{author.name.first}#{author.name.last},
+
+            .col.s12.l10.offset-l1.bbox
+                h5 研究进度
+                 .progress
+                    .determinate(style='width: #{researches[0].progressbar}') 
+            .col.s12.l2.offset-l9
+                 if researches[0].demo.length > 0
+                    a.btn.btn-default.button1(target="_blank",href=researches[0].demo, role='button') 在线演示    
+                 a.btn.btn-default.button2(href=researches[0].demo, role='button',onclick='javascript:history.go(-1);') 返回   
+                         .col.s12.m12.l1.offset-l1                                     
+        a.cd-top(href='#0') Top
+
+
+block js
+     script(type='text/javascript', src='/js/modernizr.js')
+     script(type='text/javascript', src='/js/research.js')
+     script(type='text/javascript').
+            $(document).ready(function(){
+            $('.slider').slider({full_width: true});
+            });

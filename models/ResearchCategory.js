@@ -8,11 +8,23 @@ var Types = keystone.Field.Types;
 
 var ResearchCategory = new keystone.List('ResearchCategory', {
 	track: true,
-	autokey: { from: 'name', path: 'key', unique: true }
+	label:'研究成果类别',
+    map:{name:'name'}
 });
 
 ResearchCategory.add({
-	name: { type: String, required: true }
+	key: { type: String, required: true, initial:true,label:"类别英文名称"},
+	name: {type: String, required: true, initial:true,label:"类别中文名称"}
+});
+
+
+/**
+ * Virtuals
+ * ========
+ */
+
+ResearchCategory.schema.virtual('url').get(function() {
+	return "/researches/categories/"+this.id;
 });
 
 

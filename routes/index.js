@@ -25,20 +25,32 @@ keystone.set('500', function(err, req, res, next) {
 // 加载路由
 var routes = {
     views: importRoutes('./views'),
-    ajaxs: importRoutes('./ajaxs')
+    api: importRoutes('./api')
 };
  
 // 绑定路由
 exports = module.exports = function(app) {
+    app.use(routes.views.skeleton);
     app.get('/', routes.views.home);
-
-    app.get('/posts', routes.views.posts);
-    app.get('/researches', routes.views.researches);
+    app.get('/home', routes.views.home);
+    app.use('/posts',routes.views.posts.info);
+    app.get('/posts', routes.views.posts.index);
+    app.get('/posts/:id', routes.views.posts.post);
+    app.get('/posts/categories/:id', routes.views.posts.category);
+    app.get('/posts/year/:year', routes.views.posts.year);
+    app.use('/researches', routes.views.researches.info);
+    app.get('/researches', routes.views.researches.index);
+    app.get('/researches/:id', routes.views.researches.research);    
+    app.get('/researches/categories/:id', routes.views.researches.category);
+    app.get('/researches/year/:year', routes.views.researches.year);
+    app.get('/researches/progress/:progress', routes.views.researches.progress);
+    //app.get('/researches/detail/:id', routes.views.researchdetail);
+    //app.get('/researches/:item/:name', routes.views.researchcategory);
     app.get('/members', routes.views.members);
     app.get('/resources', routes.views.resources);
     app.get('/activities', routes.views.activities);
     //app.get('/contact', routes.views.contact);
-    app.get('/ajax/category/:name', routes.ajaxs.postCategory);
-    app.get('/ajax/member/:id', routes.ajaxs.member);
+    app.get('/api/category/:name', routes.api.postCategory);
+    app.get('/api/member/:id', routes.api.member);
 
 }

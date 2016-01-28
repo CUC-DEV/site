@@ -1,0 +1,15 @@
+extends ./default
+include ../mixins/sidemenu
+include ../mixins/card
+include ../mixins/pagination
+block css
+    link(rel='stylesheet', type='text/css', href='/styles/researches.css')
+block intro
+    -var title='记录发展历程'
+    -var text='中国传媒大学存储实验室长期从事信息存储的理论研究和网络存储技术开发，和国家信息中心合建存储技术工程中心，和声讯公司、中科院声学所合建安防大数据北京市重大实验室，系存储产业技术创新战略联盟首批成员单位,海量存储标准工作委员会成员单位。'
+    +introduction(title, text)
+
+block slogan
+    h2
+        | Texts, images, videos, we processe everthing.
+    

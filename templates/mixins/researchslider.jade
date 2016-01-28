@@ -1,0 +1,14 @@
+mixin researchslider(researches)
+      .slider()
+        ul.slides
+             each picture in researches[0].images
+                  li
+                    img(src=picture._.image.src())
+                    .caption.center-align
+                       h3 #{picture.title}
+                       h5.light.grey-text.text-lighten-3 #{picture.title}              
+            // li
+            //   img(src=imgPrefix+researches[0].images[1].image.filename)
+            //   .caption.center-align
+            //     h3 #{researches.length}
+            //     h5.light.grey-text.text-lighten-3 #{researches[0].images.length} 
