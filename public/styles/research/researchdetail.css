@@ -2,9 +2,10 @@
 	  border: 1px solid #DFDFDF;
 	  border-radius: 5px;
 	  margin-top:1%;
-	  margin-right:1%;	  
+	  /*margin-right:1%;*/	  
 	  padding: 50px;
 	  text-align: center;
+      /*background:rgba(220,2,255,0.5);*/
 }
 h2{
 	text-align: center;
