@@ -24,11 +24,12 @@ Paper.add({
 	content: {type: Types.Html, wysiwyg: true,label:"内容"},
 	file: {
 		type: Types.LocalFile,
-		dest: data_path + '/achievement',
+		dest: data_path + '/paper',
 		prefix: '/files/',
 		filename: function (item, file) {
 			return item.id + '.' + file.extension
-		},label:"上传文件"
+		},
+		label:"上传文件"
 	},
 });
 
