@@ -11,5 +11,5 @@ mixin paper(papers)
             each paper in papers       
                 .collection-item=paper.title
                     if paper.file.filename
-                        a.secondary-content(href = paper.file.dest + '/' + paper.file.filename).material-icons input
+                        a.secondary-content(href = paperPrefix + paper.file.filename download).material-icons input
        

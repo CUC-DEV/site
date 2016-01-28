@@ -25,7 +25,7 @@ Paper.add({
 	file: {
 		type: Types.LocalFile,
 		dest: data_path + '/paper',
-		prefix: '/files/',
+		prefix: '/paper/',
 		filename: function (item, file) {
 			return item.id + '.' + file.extension
 		},
