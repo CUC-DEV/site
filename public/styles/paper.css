@@ -1,7 +1,17 @@
+.neo-intro{
+    color: #fafafa;
+    padding-top: 60px;
+    background-image: url("/images/background/paper.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+	padding-bottom: 30px;
+}
 .neo-content{
 	color: gray;
     padding-top: 90px !important;
-    background-image: url("/images/background/home.jpg");
+    background-image: url("/images/background/paper.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
