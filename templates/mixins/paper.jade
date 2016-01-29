@@ -1,15 +1,13 @@
 mixin paper(papers)
     if papers && papers.length
-        //each paper in papers
-            .row
-                .card.z-depth-4
-                   .card-content
-                       span.card-title=paper.title
-                        .card-action
-                            a(target="_blank", href="#") 下载
         .collection
-            each paper in papers       
-                .collection-item=paper.title
+            each paper in papers
+                .collection-item #{paper.title}
                     if paper.file.filename
-                        a.secondary-content(href = paperPrefix + paper.file.filename download).material-icons input
-       
+                        a.secondary-content(href = paperPrefix + paper.file.filename download).material-icons play_for_work
+            if papers.length<10
+                - for (var i = 0; i < 10-papers.length; ++i) { 
+                    //img.circle(src='images/paper/paper.jpg', alt='')   
+                    .collection-item 暂无资料
+                - }
+                    
