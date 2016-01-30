@@ -50,11 +50,14 @@ block content
                  if researches[0].demo.length > 0
                     a.btn.btn-default.button1(target="_blank",href=researches[0].demo, role='button') 在线演示    
                  a.btn.btn-default.button2(href=researches[0].demo, role='button',onclick='javascript:history.go(-1);') 返回   
+                         .col.s12.m12.l1.offset-l1                                     
+        a.cd-top(href='#0') Top
+
 
 block js
-     script(type='text/javascript', src='/js/researches.js')
+     script(type='text/javascript', src='/js/modernizr.js')
+     script(type='text/javascript', src='/js/research.js')
      script(type='text/javascript').
             $(document).ready(function(){
             $('.slider').slider({full_width: true});
             });
-        

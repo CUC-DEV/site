@@ -37,7 +37,6 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.imgPrefix = '/img/';
     locals.paperPrefix = '/paper/';
-	
 	locals.basedir = keystone.get('basedir');
 	
 	locals.page = {
