@@ -26,9 +26,9 @@ block js
                             if(res.status == 'ok'){
                                 var data = res.data;
                                 var memberDiv=$('#memberModal');
-                                memberDiv.find('div#bio').html(data.bio.html);
-                                memberDiv.find('a.modal-action#weibo').attr("href",data.weibo);	
-                                memberDiv.find('a.modal-action#website').attr("href",data.website);	
+                                memberDiv.find('li#bio').html(data.bio.html);
+                                memberDiv.find('a.secondary-content#weibo').attr("href",data.weibo);	
+                                memberDiv.find('a.secondary-content#website').attr("href",data.website);	
                                 
                             }
                         });
