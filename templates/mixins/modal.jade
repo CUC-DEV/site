@@ -1,12 +1,26 @@
 mixin modal(id)
-	.modal.modal-fixed-footer(id=id)
-		.modal-conten
-			h5 个人简历:
-			div(id='bio') 个人简历具体内容
-			h5 相关科研项目:
-			div(id='achievements') 与个人相关的科研项目
-			h5 个人社交网络:
-			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(id='weibo',href='#!') 微博
-			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(id='website',href='#!') 个人网站
-		//.modal-footer
-			a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') 微博
+    .modal.modal-fixed-footer(id=id)
+        .modal-conten
+            ul.collection.with-header
+                li.collection-header
+                    h5 个人简历
+                        i.material-icons.left perm_identity                     
+                li.collection-item(id='bio') 个人简历具体内容
+                li.collection-header
+                    h5 获奖情况
+                        i.material-icons.left grade
+                li.collection-item(id='achievements') 个人的获奖情况
+                li.collection-header
+                    h5 个人社交网站
+                        i.material-icons.left person_pin
+                li.collection-item
+                    div
+                        | 微博
+                        a.secondary-content(id='weibo',href='#!')
+                            i.material-icons send
+                li.collection-item
+                    div
+                        | 个人网站
+                        a.secondary-content(id='website',href='#!')
+                            i.material-icons send
+      
