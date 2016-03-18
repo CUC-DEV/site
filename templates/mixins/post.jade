@@ -18,7 +18,8 @@ mixin post(posts, postStyles)
                         span.card-title=post.title
                         .spinner
                             .neo-post-content
-                                img(src=post.images[0]._.image.src())
+                                if post.image
+                                  img(src=post.image)
                                 | !{post.content.detail}
                         .card-action
                             // 添加微博分享

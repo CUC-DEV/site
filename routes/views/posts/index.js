@@ -7,14 +7,13 @@ exports = module.exports = function(req, res) {
 			id=req.params.id;
 
     view.on('init', function(next) {
-        keystone.list('Post').model.find({state : 'published'}).exec(function(err, posts) {
+        keystone.list('Post').model.find({state : 'published'}).populate('images').exec(function(err, posts) {
             if (err) {
                 console.log("not find news ");
                 return next(err);
             }
 
             locals.posts = posts;
-
             next();
         });
 

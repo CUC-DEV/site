@@ -43,6 +43,11 @@ Post.schema.virtual('name').get(function() {
     return this.title;
 });
 
+Post.schema.virtual('image').get(function() {
+  return this.images.length ? this.images[0]._.image.src() : null;
+});
+
+
 /**
  * Middleware
  * ========
